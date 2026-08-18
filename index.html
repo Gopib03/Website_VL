@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vithal Life Science — USFDA-Compliant Sterile Injectable Platform</title>
+<meta name="description" content="Vithal Life Science builds and operates a USFDA-compliant sterile injectable manufacturing platform — aseptic fill-finish for vials, pre-filled syringes, cartridges, and lyophilized biologics.">
+<meta name="keywords" content="sterile injectable manufacturing, USFDA compliant, aseptic fill-finish, cGMP, pre-filled syringes, lyophilization, parenteral manufacturing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14201D;
+    --ink-soft:#52655F;
+    --paper:#FCFDFC;
+    --paper-dim:#F0F4F2;
+    --primary:#0F6B5C;
+    --primary-deep:#073D33;
+    --accent:#C9A227;
+    --mint:#4FD1B3;
+    --surface:#E7F2EF;
+    --line:rgba(15,107,92,0.16);
+    --card-bg:#ffffff;
+    --header-bg:rgba(252,253,252,0.86);
+    --shadow: 0 20px 60px -30px rgba(7,61,51,0.32);
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  body{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  ::selection{background:var(--accent); color:var(--ink);}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:500;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:var(--header-bg);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1240px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--display);
+    font-size:22px; font-weight:600;
+    color:var(--primary-deep);
+  }
+  .brand .mark{width:40px; height:40px; flex-shrink:0;}
+  .brand small{
+    display:block; font-family:var(--mono); font-size:9px;
+    letter-spacing:0.1em; color:var(--ink-soft); font-weight:400;
+    text-transform:uppercase; margin-top:1px;
+  }
+  nav.links{display:flex; gap:34px; align-items:center;}
+  nav.links a{
+    font-size:14.5px; font-weight:500; color:var(--ink-soft);
+    position:relative; padding:4px 0;
+    transition:color .2s ease;
+  }
+  nav.links a:hover{color:var(--primary-deep);}
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:-2px;
+    width:0; height:1.5px; background:var(--accent);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .cta-btn{
+    font-family:var(--body); font-weight:600; font-size:14px;
+    background:var(--primary-deep); color:#fff;
+    padding:11px 22px; border-radius:3px;
+    border:1px solid var(--primary-deep);
+    transition:background .2s ease, transform .2s ease;
+    display:inline-block;
+  }
+  .cta-btn:hover{background:var(--primary); transform:translateY(-1px);}
+  .cta-ghost{
+    font-weight:600; font-size:14px; padding:11px 20px;
+    border:1px solid var(--ink); border-radius:3px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .cta-ghost:hover{background:var(--ink); color:var(--paper);}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
+
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:88px 0 60px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{
+    font-family:var(--display);
+    font-size:clamp(40px, 5.4vw, 68px);
+    font-weight:600;
+    line-height:1.03;
+    letter-spacing:-0.01em;
+    color:var(--primary-deep);
+    margin:22px 0 24px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--accent);
+  }
+  .hero p.lead{
+    font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+
+  .helix-wrap{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    min-height:420px;
+  }
+  .helix-wrap svg{width:100%; max-width:420px; height:auto;}
+
+  .strand{fill:none; stroke-linecap:round;}
+  .strand-a{stroke:var(--primary);}
+  .strand-b{stroke:var(--mint);}
+  .rung{stroke:var(--accent); stroke-linecap:round;}
+  .capsule-half{opacity:0;}
+  .morph-group{animation:driftFloat 8s ease-in-out infinite;}
+  @keyframes driftFloat{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-14px);}
+  }
+  .morph-a{ animation: morphA 9s ease-in-out infinite; }
+  .morph-b{ animation: morphB 9s ease-in-out infinite; }
+  .fade-caps{ animation: fadeCaps 9s ease-in-out infinite; }
+  .fade-helix{ animation: fadeHelix 9s ease-in-out infinite; }
+  @keyframes fadeCaps{ 0%,55%{opacity:0;} 75%,90%{opacity:1;} 100%{opacity:0;} }
+  @keyframes fadeHelix{ 0%,10%{opacity:1;} 60%,100%{opacity:1;} 70%{opacity:0.15;} }
+
+  /* ---------- STATS BAR ---------- */
+  .stats-bar{
+    background:var(--primary-deep); color:#fff;
+    padding:34px 0;
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  @media (max-width:760px){ .stats-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat{text-align:left; border-left:2px solid rgba(255,255,255,0.25); padding-left:18px;}
+  .stat .num{
+    font-family:var(--mono); font-size:clamp(26px,3vw,36px); font-weight:600; color:var(--mint);
+    display:block;
+  }
+  .stat .lbl{font-size:13px; color:rgba(255,255,255,0.75); margin-top:4px;}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:96px 0;}
+  .sec-head{max-width:640px; margin-bottom:52px;}
+  .sec-head h2{
+    font-family:var(--display); font-weight:600;
+    font-size:clamp(30px,3.6vw,44px);
+    color:var(--primary-deep);
+    margin-top:16px; line-height:1.08;
+  }
+  .sec-head p{color:var(--ink-soft); margin-top:16px; font-size:16.5px;}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  @media (max-width:820px){ .pillars{grid-template-columns:1fr;} }
+  .pillar{
+    background:var(--paper); padding:42px 36px;
+    transition:background .3s ease;
+  }
+  .pillar:hover{background:var(--surface);}
+  .pillar .num{
+    font-family:var(--mono); color:var(--accent); font-size:12.5px; font-weight:600;
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--line);
+    background:linear-gradient(150deg, var(--surface), var(--card-bg));
+  }
+  .pillar h3{
+    font-family:var(--display); font-size:24px; font-weight:600;
+    margin:14px 0 12px; color:var(--primary-deep);
+  }
+  .pillar p{color:var(--ink-soft); font-size:15px;}
+
+  /* ---------- SOLUTIONS GRID ---------- */
+  .solutions-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  @media (max-width:900px){ .solutions-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .solutions-grid{grid-template-columns:1fr;} }
+  .sol-card{
+    border:1px solid var(--line); border-radius:6px; padding:30px 26px;
+    background:var(--card-bg);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .3s ease;
+    position:relative;
+  }
+  .sol-card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--primary);}
+  .sol-card .icon{
+    width:50px; height:50px; border-radius:14px;
+    background:linear-gradient(150deg, var(--surface), var(--card-bg));
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+    box-shadow:0 6px 16px -8px rgba(74,18,28,0.25);
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .sol-card:hover .icon{border-color:var(--primary); transform:translateY(-2px);}
+  .sol-card .icon svg{width:24px; height:24px; stroke:var(--primary);}
+  .sol-card h4{font-family:var(--display); font-size:19px; font-weight:600; margin-bottom:8px; color:var(--primary-deep);}
+  .sol-card p{font-size:14.5px; color:var(--ink-soft);}
+  .sol-card .tag{
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--accent);
+    text-transform:uppercase; margin-top:14px; display:inline-block;
+  }
+
+  /* ---------- SPOTLIGHT / CASE STUDY ---------- */
+  .spotlight{
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border-radius:8px; overflow:hidden; border:1px solid var(--line);
+  }
+  @media (max-width:860px){ .spotlight{grid-template-columns:1fr;} }
+  .spotlight-visual{
+    background:
+      radial-gradient(circle at 30% 20%, rgba(79,209,179,0.35), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(201,162,39,0.25), transparent 50%),
+      linear-gradient(135deg, var(--primary-deep), var(--primary));
+    min-height:320px; position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .spotlight-visual svg{width:60%; opacity:0.95;}
+  .spotlight-text{padding:46px 42px; background:var(--card-bg); transition:background-color .3s ease;}
+  .spotlight-text .eyebrow{margin-bottom:14px;}
+  .spotlight-text h3{
+    font-family:var(--display); font-size:26px; font-weight:600; color:var(--primary-deep);
+    margin-bottom:14px; line-height:1.15;
+  }
+  .spotlight-text p{color:var(--ink-soft); font-size:15.5px; margin-bottom:22px;}
+  .link-arrow{
+    font-weight:600; font-size:14.5px; color:var(--primary-deep);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .link-arrow svg{width:16px; height:16px; transition:transform .2s ease;}
+  .link-arrow:hover svg{transform:translateX(4px);}
+
+  /* ---------- USA MAP ---------- */
+  .map-section{background:var(--primary-deep); color:#fff;}
+  .map-section .sec-head h2{color:#fff;}
+  .map-section .sec-head p{color:rgba(255,255,255,0.72);}
+  .map-section .eyebrow{color:var(--mint);}
+  .map-section .eyebrow::before{background:var(--accent);}
+  .map-wrap{
+    display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:center;
+  }
+  @media (max-width:860px){ .map-wrap{grid-template-columns:1fr;} }
+  .usa-map{width:100%; height:auto;}
+  .usa-land{fill:rgba(255,255,255,0.08); stroke:rgba(255,255,255,0.22); stroke-width:1.5;}
+  .map-dot{cursor:default;}
+  .map-dot circle.core{fill:var(--mint);}
+  .map-dot circle.pulse{
+    fill:none; stroke:var(--mint); stroke-width:1.5; opacity:0;
+    transform-origin:center; transform-box:fill-box;
+    animation:pulseRing 2.6s ease-out infinite;
+  }
+  .map-dot.fda circle.core{fill:var(--accent);}
+  .map-dot.fda circle.pulse{stroke:var(--accent);}
+  @keyframes pulseRing{
+    0%{ transform:scale(0.4); opacity:0.9; }
+    100%{ transform:scale(2.6); opacity:0; }
+  }
+  .map-label{
+    font-family:var(--mono); font-size:9.5px; fill:rgba(255,255,255,0.85);
+    letter-spacing:0.02em;
+  }
+  .map-legend{display:flex; flex-direction:column; gap:18px;}
+  .legend-item{display:flex; align-items:flex-start; gap:12px;}
+  .legend-dot{
+    width:12px; height:12px; border-radius:50%; margin-top:4px; flex-shrink:0;
+  }
+  .legend-dot.mfg{background:var(--mint);}
+  .legend-dot.fda{background:none; border:2px solid var(--accent);}
+  .legend-item h5{font-size:14.5px; font-weight:600; margin-bottom:3px;}
+  .legend-item p{font-size:13px; color:rgba(255,255,255,0.68);}
+
+
+  .news-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:48px;
+  }
+  @media (max-width:820px){ .news-grid{grid-template-columns:1fr;} }
+  .news-col h3{
+    font-family:var(--mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--primary); margin-bottom:22px; padding-bottom:14px; border-bottom:1px solid var(--line);
+  }
+  .news-item{
+    display:flex; gap:18px; padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  .news-item:last-child{border-bottom:none;}
+  .news-item .date{
+    font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); min-width:82px; padding-top:2px;
+  }
+  .news-item a{font-size:15px; font-weight:500; color:var(--ink);}
+  .news-item a:hover{color:var(--primary-deep); text-decoration:underline;}
+  .news-item .cat{
+    display:inline-block; margin-top:6px; font-family:var(--mono); font-size:10.5px;
+    color:var(--accent); text-transform:uppercase; letter-spacing:.06em;
+  }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-band{
+    background:var(--primary-deep); color:#fff; border-radius:10px;
+    padding:64px 56px; display:flex; align-items:center; justify-content:space-between; gap:40px;
+    position:relative; overflow:hidden;
+  }
+  .cta-band::after{
+    content:""; position:absolute; right:-60px; top:-60px; width:260px; height:260px;
+    border-radius:50%; background:radial-gradient(circle, rgba(79,209,179,0.35), transparent 70%);
+  }
+  @media (max-width:760px){ .cta-band{flex-direction:column; align-items:flex-start; padding:44px 30px;} }
+  .cta-band h2{font-family:var(--display); font-size:clamp(26px,3vw,36px); font-weight:600; max-width:520px;}
+  .cta-band .cta-btn{background:var(--accent); border-color:var(--accent); color:var(--ink);}
+  .cta-band .cta-btn:hover{background:#e0b933;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:70px 0 30px; margin-top:60px;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.4fr repeat(4,1fr); gap:32px; padding-bottom:50px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  @media (max-width:900px){ .footer-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} }
+  .footer-grid h5{
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    color:#fff; margin-bottom:18px;
+  }
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:10px; font-size:14px;}
+  .footer-grid a:hover{color:var(--mint);}
+  .footer-brand{font-family:var(--display); font-size:22px; color:#fff; margin-bottom:14px;}
+  .footer-brand-desc{font-size:14px; max-width:280px; line-height:1.6;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:24px;
+    font-size:13px; flex-wrap:wrap; gap:14px;
+  }
+  .socials{display:flex; gap:10px;}
+  .socials a{
+    width:36px; height:36px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,0.16);
+    transition:background-color .2s ease, border-color .2s ease;
+  }
+  .socials a:hover{background:rgba(255,255,255,0.08); border-color:var(--mint);}
+  .socials a svg{width:16px; height:16px; stroke:rgba(255,255,255,0.7); transition:stroke .2s ease;}
+  .socials a:hover svg{stroke:var(--mint);}
+
+  /* ---------- LANG TOGGLE ---------- */
+  .toggles{display:flex; align-items:center; gap:10px; margin-right:6px;}
+  .lang-switch{
+    display:flex; border:1px solid var(--line); border-radius:20px; overflow:hidden;
+    background:var(--surface);
+  }
+  .lang-btn{
+    font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.03em;
+    padding:8px 13px; background:transparent; border:none; cursor:pointer; color:var(--ink-soft);
+    transition:background-color .2s ease, color .2s ease;
+  }
+  .lang-btn.active{background:var(--primary-deep); color:#fff;}
+  @media (max-width:640px){ .lang-btn{padding:7px 10px; font-size:11px;} }
+
+  /* ---------- SHOWCASE TAG FILTER ---------- */
+  .tag-filter{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px;}
+  .tag-chip{
+    font-family:var(--mono); font-size:12.5px; font-weight:600;
+    padding:9px 16px; border-radius:20px; border:1px solid var(--line);
+    background:var(--card-bg); color:var(--ink-soft); cursor:pointer;
+    transition:background-color .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .tag-chip.active, .tag-chip:hover{background:var(--primary-deep); color:#fff; border-color:var(--primary-deep);}
+  .showcase-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:18px;
+  }
+  @media (max-width:900px){ .showcase-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .showcase-grid{grid-template-columns:1fr;} }
+  .showcase-card{
+    display:block; border:1px solid var(--line); border-radius:8px; padding:24px 20px;
+    background:var(--card-bg); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .showcase-card:hover{transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--primary);}
+  .showcase-card .showcase-icon{
+    width:38px; height:38px; border-radius:10px; margin-bottom:16px;
+    background:linear-gradient(150deg, var(--surface), var(--card-bg));
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .showcase-card .showcase-icon svg{width:19px; height:19px; stroke:var(--primary);}
+  .showcase-card h4{font-family:var(--display); font-size:16.5px; font-weight:600; color:var(--primary-deep); margin-bottom:8px; line-height:1.25;}
+  .showcase-card .showcase-tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent);}
+  .showcase-card.hidden{display:none;}
+
+  /* ---------- STRENGTHS TABS ---------- */
+  .strengths-tabs{display:grid; grid-template-columns:300px 1fr; gap:44px;}
+  @media (max-width:800px){ .strengths-tabs{grid-template-columns:1fr;} }
+  .strengths-nav{display:flex; flex-direction:column; border-left:2px solid var(--line);}
+  .strength-btn{
+    display:flex; align-items:center; gap:14px; text-align:left;
+    padding:18px 22px; border:none; background:transparent; cursor:pointer;
+    border-left:3px solid transparent; margin-left:-2px;
+    font-family:var(--body); font-size:15.5px; font-weight:600; color:var(--ink-soft);
+    transition:background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .strength-btn .strength-num{
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--accent);
+    width:30px; height:30px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    background:var(--card-bg);
+  }
+  .strength-btn.active{background:var(--surface); border-left-color:var(--primary); color:var(--primary-deep);}
+  .strength-panel{display:none;}
+  .strength-panel.active{display:grid; grid-template-columns:180px 1fr; gap:28px; align-items:start;}
+  @media (max-width:600px){ .strength-panel.active{grid-template-columns:1fr;} }
+  .strength-visual{
+    width:100%; aspect-ratio:1; border-radius:12px;
+    background:linear-gradient(150deg, var(--primary-deep), var(--primary));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .strength-visual svg{width:56%; height:56%; stroke:#fff;}
+  .strength-panel p{color:var(--ink-soft); font-size:16px; margin-bottom:18px;}
+  .strength-panel ul{list-style:none; display:grid; gap:10px;}
+  .strength-panel li{
+    display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:var(--ink);
+  }
+  .strength-panel li::before{
+    content:""; width:6px; height:6px; border-radius:50%; background:var(--accent);
+    margin-top:7px; flex-shrink:0;
+  }
+
+  /* ---------- INFO CARD ROW (Sustainability / About / IR) ---------- */
+  .info-row{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+  @media (max-width:820px){ .info-row{grid-template-columns:1fr;} }
+  .info-card{background:var(--card-bg); padding:38px 32px; transition:background-color .2s ease;}
+  .info-card:hover{background:var(--surface);}
+  .info-card h4{font-family:var(--display); font-size:20px; font-weight:600; color:var(--primary-deep); margin-bottom:10px;}
+  .info-card p{font-size:14.5px; color:var(--ink-soft); margin-bottom:16px;}
+
+  /* ---------- PICK UP / PRESS / SHARE ---------- */
+  .side-row{display:grid; grid-template-columns:1.4fr 1fr; gap:40px; margin-top:56px; padding-top:44px; border-top:1px solid var(--line);}
+  @media (max-width:820px){ .side-row{grid-template-columns:1fr;} }
+  .pickup-list{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .pickup-card{
+    border:1px solid var(--line); border-radius:6px; padding:18px; background:var(--card-bg);
+    font-size:14px; font-weight:600; color:var(--primary-deep);
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .pickup-card:hover{border-color:var(--primary); transform:translateY(-2px);}
+  .press-box{border:1px solid var(--line); border-radius:6px; padding:26px; background:var(--card-bg);}
+  .press-box h5{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--primary); margin-bottom:10px;}
+  .press-box p{font-size:14px; color:var(--ink-soft); margin-bottom:16px;}
+  .press-links{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px;}
+  .press-links a{font-size:14px; font-weight:600; color:var(--primary-deep); text-decoration:underline;}
+  .share-row{display:flex; gap:10px; align-items:center;}
+  .share-row span{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-right:4px;}
+  .share-icon{
+    width:32px; height:32px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    transition:background-color .2s ease, border-color .2s ease;
+  }
+  .share-icon:hover{background:var(--primary-deep); border-color:var(--primary-deep);}
+  .share-icon svg{width:14px; height:14px; stroke:var(--ink-soft);}
+  .share-icon:hover svg{stroke:#fff;}
+
+  /* ---------- PRODUCT & SERVICE PORTFOLIO ---------- */
+  .portfolio-band{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:14px 20px; text-align:center; margin-bottom:44px;
+  }
+  .portfolio-band span{
+    font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--primary-deep);
+  }
+  .portfolio-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+  }
+  .portfolio-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+  @media (max-width:900px){ .portfolio-grid, .portfolio-grid.cols-4{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .portfolio-grid, .portfolio-grid.cols-4{grid-template-columns:1fr;} }
+  .portfolio-col{
+    padding:0 28px; border-left:1px dashed var(--line);
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .portfolio-col:first-child{border-left:none;}
+  @media (max-width:900px){ .portfolio-col{border-left:none; border-top:1px dashed var(--line); padding:28px 16px 0;} .portfolio-col:first-child{border-top:none; padding-top:0;} }
+  .portfolio-icon{
+    width:76px; height:76px; border-radius:50%;
+    background:linear-gradient(150deg, var(--surface), var(--card-bg));
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .portfolio-icon svg{width:34px; height:34px; stroke:var(--primary);}
+  .portfolio-col h4{
+    font-family:var(--display); font-size:19px; font-weight:600; color:var(--primary-deep);
+    margin-bottom:12px; line-height:1.25; min-height:48px; display:flex; align-items:center;
+  }
+  .portfolio-col .portfolio-desc{
+    font-size:14px; color:var(--ink-soft); margin-bottom:22px; min-height:44px;
+  }
+  .capacity-table{
+    width:100%; border-collapse:collapse; font-size:13.5px; margin-top:auto;
+  }
+  .capacity-table td{
+    border:1px solid var(--line); padding:11px 12px; text-align:left;
+  }
+  .capacity-table td:first-child{color:var(--ink-soft); background:var(--paper-dim);}
+  .capacity-table td:last-child{font-family:var(--mono); font-weight:600; color:var(--primary-deep); text-align:right;}
+  .installed-band{
+    background:var(--primary-deep); color:#fff; text-align:center;
+    padding:16px 20px; border-radius:4px; margin:44px 0 40px;
+    font-family:var(--mono); font-size:14px; font-weight:600; letter-spacing:.02em;
+  }
+  .facility-row{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:760px){ .facility-row{grid-template-columns:1fr;} }
+  .facility-item{display:flex; align-items:center; gap:16px;}
+  .facility-item .f-icon{
+    width:52px; height:52px; border-radius:12px; flex-shrink:0;
+    background:linear-gradient(150deg, var(--surface), var(--card-bg));
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .facility-item .f-icon svg{width:26px; height:26px; stroke:var(--primary);}
+  .facility-item span{font-family:var(--display); font-weight:600; font-size:15px; color:var(--primary-deep); line-height:1.3;}
+
+  /* ---------- INVESTMENT SECTION ---------- */
+  .invest-subhead{
+    font-family:var(--display); font-size:19px; font-weight:600; color:var(--primary-deep);
+    margin-bottom:18px; padding-bottom:10px; border-bottom:2px solid var(--ink);
+  }
+  .invest-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-bottom:40px;}
+  @media (max-width:820px){ .invest-grid{grid-template-columns:1fr;} }
+  .fact-list{display:grid; gap:10px;}
+  .fact-item{
+    display:flex; align-items:center; gap:16px; padding:16px 18px;
+    background:var(--surface); border-radius:8px;
+  }
+  .fact-item .fact-icon{
+    width:42px; height:42px; border-radius:10px; flex-shrink:0;
+    background:var(--card-bg); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .fact-item .fact-icon svg{width:21px; height:21px; stroke:var(--primary);}
+  .fact-item span{font-size:14.5px; font-weight:600; color:var(--ink);}
+  .invest-capacity-table{width:100%; border-collapse:collapse; font-size:14px;}
+  .invest-capacity-table th{
+    background:var(--primary-deep); color:#fff; text-align:left; padding:13px 16px;
+    font-family:var(--body); font-size:13.5px; font-weight:600;
+  }
+  .invest-capacity-table th:last-child, .invest-capacity-table td:last-child{text-align:right;}
+  .invest-capacity-table td{padding:13px 16px; border:1px solid var(--line); color:var(--ink);}
+  .invest-capacity-table tr:nth-child(even) td{background:var(--paper-dim);}
+  .invest-capacity-table tr.total-row td{
+    background:var(--primary-deep); color:#fff; font-weight:700;
+  }
+  .equity-cards{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  @media (max-width:900px){ .equity-cards{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .equity-cards{grid-template-columns:1fr;} }
+  .equity-card{
+    border:1px solid var(--line); border-radius:10px; padding:26px 18px 22px;
+    text-align:center; background:var(--card-bg); position:relative;
+  }
+  .equity-card::before{
+    content:""; position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+    width:54px; height:18px; background:var(--primary-deep); border-radius:6px 6px 0 0;
+  }
+  .equity-card h5{font-family:var(--display); font-weight:600; color:var(--primary-deep); font-size:14.5px; margin-bottom:10px; line-height:1.3;}
+  .equity-card p{font-size:13px; color:var(--ink-soft);}
+  .equity-card p.blank-target{
+    border-bottom:1px solid var(--line); padding-bottom:8px; font-style:italic; opacity:.75;
+  }
+
+  .imbalance-grid{display:grid; grid-template-columns:1fr 90px 1fr; gap:24px; align-items:start;}
+  @media (max-width:820px){ .imbalance-grid{grid-template-columns:1fr;} }
+  .imbalance-scale{display:flex; align-items:center; justify-content:center; padding-top:50px;}
+  .imbalance-scale svg{width:60px; height:60px; stroke:var(--accent);}
+  @media (max-width:820px){ .imbalance-scale{display:none;} }
+  .imbalance-header{
+    padding:14px 18px; border-radius:6px; font-family:var(--display); font-weight:600; font-size:16px;
+    text-align:center; color:#fff; margin-bottom:14px;
+  }
+  .imbalance-header.demand{background:var(--primary-deep);}
+  .imbalance-header.supply{background:var(--ink-soft);}
+  .imbalance-item{
+    display:flex; align-items:flex-start; gap:12px; padding:14px 16px;
+    background:var(--card-bg); border:1px solid var(--line); border-radius:6px; margin-bottom:10px;
+    font-size:13.5px; color:var(--ink);
+  }
+  .imbalance-item .idot{width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:6px; flex-shrink:0;}
+
+  .strategic-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  @media (max-width:760px){ .strategic-grid{grid-template-columns:1fr;} }
+  .strategic-card{border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--card-bg);}
+  .strategic-head{padding:16px 22px; font-family:var(--display); font-weight:600; font-size:16.5px; color:#fff;}
+  .strategic-head.tone-a{background:var(--primary-deep);}
+  .strategic-head.tone-b{background:var(--ink-soft);}
+  .check-list{list-style:none; padding:20px 22px; display:grid; gap:11px;}
+  .check-list li{display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--ink);}
+  .check-list li::before{content:"✓"; color:var(--primary); font-weight:700; flex-shrink:0;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="90" cy="90" r="86" fill="none" stroke="#0F6B5C" stroke-width="5"/>
+        <path d="M60 40 C 100 62, 100 88, 60 110 C 100 132, 100 140, 128 152" fill="none" stroke="#0F6B5C" stroke-width="8" stroke-linecap="round"/>
+        <path d="M118 40 C 78 62, 78 88, 118 110 C 78 132, 78 140, 50 152" fill="none" stroke="#4FD1B3" stroke-width="8" stroke-linecap="round"/>
+        <line x1="66" y1="52" x2="112" y2="52" stroke="#0A463C" stroke-width="5" stroke-linecap="round"/>
+        <line x1="76" y1="75" x2="102" y2="75" stroke="#0A463C" stroke-width="5" stroke-linecap="round"/>
+        <line x1="76" y1="118" x2="102" y2="118" stroke="#0A463C" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="140" x2="118" y2="140" stroke="#0A463C" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <span>VITHAL<br><small>LIFE SCIENCE</small></span>
+    </a>
+    <nav class="links">
+      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+      <a href="#pillars" data-i18n="nav.strengths">Strengths</a>
+      <a href="#spotlight" data-i18n="nav.innovation">Innovation</a>
+      <a href="#footprint" data-i18n="nav.footprint">Footprint</a>
+      <a href="#investment" data-i18n="nav.investment">Investment</a>
+      <a href="#news" data-i18n="nav.news">News</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="toggles">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="hi" type="button">हिं</button>
+      </div>
+    </div>
+    <a href="#contact" class="cta-btn" data-i18n="nav.talktous">Talk to us</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">USFDA-Compliant Sterile Injectable Platform</span>
+        <h1 data-i18n="hero.h1">Aseptic manufacturing, built to <em>USFDA</em> standards from day one.</h1>
+        <p class="lead" data-i18n="hero.lead">Vithal Life Science is building a dedicated sterile injectable platform — isolator-based aseptic filling, lyophilization, and fully validated fill-finish lines engineered to meet USFDA 21 CFR 211 and EU Annex 1 requirements across every batch.</p>
+        <div class="hero-ctas">
+          <a href="#solutions" class="cta-btn" data-i18n="hero.cta1">Explore the injectable platform</a>
+          <a href="#spotlight" class="cta-ghost" data-i18n="hero.cta2">See our compliance approach</a>
+        </div>
+      </div>
+      <div class="helix-wrap">
+        <svg viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+          <g class="morph-group">
+            <g class="fade-helix">
+              <path class="strand strand-a" d="M140 30 C 230 90, 230 150, 140 210 C 230 270, 230 330, 150 400" stroke-width="10"/>
+              <path class="strand strand-b" d="M260 30 C 170 90, 170 150, 260 210 C 170 270, 170 330, 250 400" stroke-width="10"/>
+              <line class="rung" x1="150" y1="55" x2="248" y2="55" stroke-width="6"/>
+              <line class="rung" x1="168" y1="100" x2="230" y2="100" stroke-width="6"/>
+              <line class="rung" x1="150" y1="150" x2="248" y2="150" stroke-width="6"/>
+              <line class="rung" x1="168" y1="210" x2="230" y2="210" stroke-width="6"/>
+              <line class="rung" x1="155" y1="270" x2="245" y2="270" stroke-width="6"/>
+              <line class="rung" x1="168" y1="330" x2="230" y2="330" stroke-width="6"/>
+              <line class="rung" x1="158" y1="378" x2="240" y2="378" stroke-width="6"/>
+            </g>
+            <g class="fade-caps">
+              <rect x="130" y="160" width="140" height="140" rx="70" fill="#0F6B5C"/>
+              <path d="M130 230 h140 v0 a70 70 0 0 1 -140 0 z" fill="#4FD1B3" opacity="0.9"/>
+              <circle cx="200" cy="230" r="70" fill="none" stroke="#C9A227" stroke-width="3"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section id="showcase" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:30px;">
+        <span class="eyebrow" data-i18n="showcase.eyebrow">Vithal Life Science in a nutshell</span>
+        <h2 data-i18n="showcase.h2">Explore our platform, our people, and our progress</h2>
+      </div>
+      <div class="tag-filter reveal">
+        <button class="tag-chip active" data-tag="all" data-i18n="showcase.tag.all">#All</button>
+        <button class="tag-chip" data-tag="platform" data-i18n="showcase.tag.platform">#Platform</button>
+        <button class="tag-chip" data-tag="compliance" data-i18n="showcase.tag.compliance">#Compliance</button>
+        <button class="tag-chip" data-tag="company" data-i18n="showcase.tag.company">#Company</button>
+      </div>
+      <div class="showcase-grid reveal">
+        <a href="#spotlight" class="showcase-card" data-tags="platform compliance">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h4 data-i18n="showcase.item1.h4">SynVaultLine™ Platform</h4>
+          <span class="showcase-tag" data-i18n="showcase.item1.tag">Platform</span>
+        </a>
+        <a href="#pillars" class="showcase-card" data-tags="compliance">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h4 data-i18n="showcase.item2.h4">Our Compliance Approach</h4>
+          <span class="showcase-tag" data-i18n="showcase.item2.tag">Compliance</span>
+        </a>
+        <a href="#contact" class="showcase-card" data-tags="company">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 8h16M9 4v16"/></svg></div>
+          <h4 data-i18n="showcase.item3.h4">Message from Leadership</h4>
+          <span class="showcase-tag" data-i18n="showcase.item3.tag">Company</span>
+        </a>
+        <a href="#contact" class="showcase-card" data-tags="company">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 8a3 3 0 1 1 4 2.8M21 20c0-2.4-1.6-4.4-3.8-5.3"/></svg></div>
+          <h4 data-i18n="showcase.item4.h4">Careers at Vithal</h4>
+          <span class="showcase-tag" data-i18n="showcase.item4.tag">Company</span>
+        </a>
+        <a href="#" class="showcase-card" data-tags="company compliance">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-4 8-9 12z"/></svg></div>
+          <h4 data-i18n="showcase.item5.h4">Sustainability Report</h4>
+          <span class="showcase-tag" data-i18n="showcase.item5.tag">Company</span>
+        </a>
+        <a href="#footprint" class="showcase-card" data-tags="platform company">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="10" r="3"/><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/></svg></div>
+          <h4 data-i18n="showcase.item6.h4">National Footprint</h4>
+          <span class="showcase-tag" data-i18n="showcase.item6.tag">Platform</span>
+        </a>
+        <a href="#news" class="showcase-card" data-tags="company">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 13h5"/></svg></div>
+          <h4 data-i18n="showcase.item7.h4">Newsroom</h4>
+          <span class="showcase-tag" data-i18n="showcase.item7.tag">Company</span>
+        </a>
+        <a href="#" class="showcase-card" data-tags="company compliance">
+          <div class="showcase-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <h4 data-i18n="showcase.item8.h4">Investor Relations</h4>
+          <span class="showcase-tag" data-i18n="showcase.item8.tag">Compliance</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="wrap stats-grid">
+      <div class="stat"><span class="num">ISO 5</span><span class="lbl" data-i18n="stats.1">Grade A aseptic core, isolator-contained filling</span></div>
+      <div class="stat"><span class="num">3</span><span class="lbl" data-i18n="stats.2">Dedicated sterile fill-finish lines in build-out</span></div>
+      <div class="stat"><span class="num">21 CFR</span><span class="lbl" data-i18n="stats.3">Facility designed to Part 210/211 &amp; Annex 1</span></div>
+      <div class="stat"><span class="num">100%</span><span class="lbl" data-i18n="stats.4">Batches under full electronic traceability</span></div>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <section id="pillars">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i18n="pillars.eyebrow">What sets our platform apart</span>
+        <h2 data-i18n="pillars.h2">Three pillars of a USFDA-ready sterile line</h2>
+        <p data-i18n="pillars.p">Every design decision in our injectable platform — from cleanroom layout to data integrity — is made against USFDA expectations, not retrofitted to meet them later.</p>
+      </div>
+      <div class="strengths-tabs reveal">
+        <div class="strengths-nav">
+          <button class="strength-btn active" data-strength="1" type="button">
+            <span class="strength-num">01</span><span data-i18n="pillar1.h3">Aseptic Process Design</span>
+          </button>
+          <button class="strength-btn" data-strength="2" type="button">
+            <span class="strength-num">02</span><span data-i18n="pillar2.h3">USFDA-Aligned Facility &amp; QMS</span>
+          </button>
+          <button class="strength-btn" data-strength="3" type="button">
+            <span class="strength-num">03</span><span data-i18n="pillar3.h3">Validated, Scalable Fill-Finish</span>
+          </button>
+        </div>
+        <div class="strength-panels">
+          <div class="strength-panel active" data-panel="1">
+            <div class="strength-visual"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg></div>
+            <div>
+              <p data-i18n="pillar1.p">Isolator and RABS-based filling, closed-system transfers, and media-fill qualified operators — built to minimize human intervention in the Grade A zone.</p>
+              <ul>
+                <li data-i18n="pillar1.li1">Isolator &amp; RABS-based aseptic filling</li>
+                <li data-i18n="pillar1.li2">Closed-system material and component transfer</li>
+                <li data-i18n="pillar1.li3">Media-fill qualified operators and gowning program</li>
+              </ul>
+            </div>
+          </div>
+          <div class="strength-panel" data-panel="2">
+            <div class="strength-visual"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <div>
+              <p data-i18n="pillar2.p">Facility, utilities, and quality systems designed to 21 CFR Parts 210/211 and Annex 1, with data integrity and CAPA processes built for FDA pre-approval inspection.</p>
+              <ul>
+                <li data-i18n="pillar2.li1">Facility &amp; utilities designed to 21 CFR Parts 210/211</li>
+                <li data-i18n="pillar2.li2">Data integrity controls aligned to ALCOA+ principles</li>
+                <li data-i18n="pillar2.li3">CAPA and deviation management built for FDA PAI</li>
+              </ul>
+            </div>
+          </div>
+          <div class="strength-panel" data-panel="3">
+            <div class="strength-visual"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8M8 8h8M8 16h5"/></svg></div>
+            <div>
+              <p data-i18n="pillar3.p">Fully validated filling, lyophilization, and inspection lines that scale from clinical batches to commercial volumes without re-qualification surprises.</p>
+              <ul>
+                <li data-i18n="pillar3.li1">IQ/OQ/PQ validated filling and lyophilization</li>
+                <li data-i18n="pillar3.li2">Automated visual inspection and serialization</li>
+                <li data-i18n="pillar3.li3">Scales clinical to commercial without re-validation risk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS / THERAPEUTIC AREAS -->
+  <section id="solutions" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i18n="solutions.eyebrow">Platform capabilities</span>
+        <h2 data-i18n="solutions.h2">Product and Service Portfolio</h2>
+        <p data-i18n="solutions.p">One aseptic core, multiple validated formats — sized to fit clinical, launch, and commercial-scale sterile injectable programs.</p>
+      </div>
+
+      <div class="portfolio-band reveal">
+        <span data-i18n="portfolio.band">USFDA-Compliant Multi-Line Sterile Injectables Platform — United States</span>
+      </div>
+
+      <div class="portfolio-grid cols-4 reveal">
+        <div class="portfolio-col">
+          <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 3h6v4l1.5 2v10a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 7.5 19V9L9 7V3z"/><path d="M9 3h6M8 10h8"/></svg></div>
+          <h4 data-i18n="prod1.h4">Liquid Vials &amp; Lyophilized Vials</h4>
+          <p class="portfolio-desc" data-i18n="prod1.desc">Hospital-use, critical care injectables &amp; flexible batch sizes.</p>
+          <table class="capacity-table">
+            <tr><td data-i18n="cap.shift">Capacity per Shift</td><td>1,50,000 units</td></tr>
+            <tr><td data-i18n="cap.month">Capacity per Month</td><td>17,58,000 units</td></tr>
+            <tr><td data-i18n="cap.year">Capacity per Year</td><td>1,21,96,800 units</td></tr>
+          </table>
+        </div>
+
+        <div class="portfolio-col">
+          <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 4l-2 2M17 7l-9.5 9.5a1.5 1.5 0 0 1-2.1 0v0a1.5 1.5 0 0 1 0-2.1L15 4.5 19.5 9 17 11.5"/><path d="M11 8l5 5"/><path d="M5 19l-1.5 1.5"/></svg></div>
+          <h4 data-i18n="prod2.h4">Prefilled Syringes</h4>
+          <p class="portfolio-desc" data-i18n="prod2.desc">High-precision sterile filling for specialty &amp; high-value injectables.</p>
+          <table class="capacity-table">
+            <tr><td data-i18n="cap.shift">Capacity per Shift</td><td>50,400 units</td></tr>
+            <tr><td data-i18n="cap.month">Capacity per Month</td><td>11,08,800 units</td></tr>
+            <tr><td data-i18n="cap.year">Capacity per Year</td><td>1,21,96,800 units</td></tr>
+          </table>
+        </div>
+
+        <div class="portfolio-col">
+          <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="8" y="4" width="8" height="15" rx="4"/><circle cx="12" cy="9" r="1.4"/></svg></div>
+          <h4 data-i18n="prod3.h4">Cartridges &amp; Pen Systems</h4>
+          <p class="portfolio-desc" data-i18n="prod3.desc">Device-ready cartridge fill for auto-injector &amp; pen-delivery products.</p>
+          <table class="capacity-table">
+            <tr><td data-i18n="cap.shift">Capacity per Shift</td><td data-i18n="cap.tbd">To be confirmed</td></tr>
+            <tr><td data-i18n="cap.month">Capacity per Month</td><td data-i18n="cap.tbd">To be confirmed</td></tr>
+            <tr><td data-i18n="cap.year">Capacity per Year</td><td data-i18n="cap.tbd">To be confirmed</td></tr>
+          </table>
+        </div>
+
+        <div class="portfolio-col">
+          <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M10 3h4l1 4-1 2v9a2 2 0 0 1-2 2 2 2 0 0 1-2-2V9L9 7l1-4z"/><path d="M9.5 6.5h5"/></svg></div>
+          <h4 data-i18n="prod4.h4">Ophthalmic &amp; Nasal/Ear Drops</h4>
+          <p class="portfolio-desc" data-i18n="prod4.desc">Small-volume sterile liquid formulations.</p>
+          <table class="capacity-table">
+            <tr><td data-i18n="cap.shift">Capacity per Shift</td><td>50,400 units</td></tr>
+            <tr><td data-i18n="cap.month">Capacity per Month</td><td>11,08,800 units</td></tr>
+            <tr><td data-i18n="cap.year">Capacity per Year</td><td>1,21,96,800 units</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="installed-band reveal">
+        <span data-i18n="portfolio.total">Total Installed Capacity: 44 Mn Sterile Units Per Year (Single Shift)</span>
+      </div>
+
+      <div class="facility-row reveal">
+        <div class="facility-item">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21h18M5 21V9l4-3v3l4-3v3l4-3v15M5 21h4v-4h4v4h4"/></svg></div>
+          <span data-i18n="facility.item1">60,000 Sq. Ft.<br>US-Based Facility</span>
+        </div>
+        <div class="facility-item">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></div>
+          <span data-i18n="facility.item2">ISO 5 / ISO 6 / ISO 7 / ISO 8<br>Cleanrooms</span>
+        </div>
+        <div class="facility-item">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1z"/></svg></div>
+          <span data-i18n="facility.item3">Automation Driven<br>Operations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="spotlight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i18n="spotlight.eyebrow">Compliance-by-design</span>
+        <h2 data-i18n="spotlight.h2">Built for FDA inspection readiness, not just production output</h2>
+      </div>
+      <div class="spotlight reveal">
+        <div class="spotlight-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+            <circle cx="100" cy="100" r="46" fill="none" stroke="#4FD1B3" stroke-width="2.5"/>
+            <circle cx="100" cy="100" r="8" fill="#C9A227"/>
+            <circle cx="100" cy="30" r="6" fill="#fff"/>
+            <circle cx="160" cy="130" r="6" fill="#fff"/>
+            <circle cx="40" cy="130" r="6" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="spotlight-text">
+          <span class="eyebrow" data-i18n="spotlight.tag">SynVaultLine™ — Sterile Platform</span>
+          <h3 data-i18n="spotlight.h3">One aseptic core, engineered against 21 CFR 211 and Annex 1 from the ground up</h3>
+          <p data-i18n="spotlight.p">SynVaultLine integrates isolator-based aseptic filling, automated visual inspection, and serialization into a single continuous run. Environmental monitoring, media fills, and batch records are built for USFDA pre-approval inspection from the outset — not layered on after commissioning — with full electronic traceability from raw material to shipping case.</p>
+          <a href="#contact" class="link-arrow"><span data-i18n="spotlight.link">Request a compliance &amp; facility briefing</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USA FOOTPRINT MAP -->
+  <section class="map-section" id="footprint">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i18n="map.eyebrow">National footprint</span>
+        <h2 data-i18n="map.h2">A manufacturing &amp; distribution network built around USFDA alignment</h2>
+        <p data-i18n="map.p">Our sterile injectable platform is positioned across key U.S. pharma hubs — close to the analytical, regulatory, and logistics infrastructure that keeps a USFDA-regulated supply chain moving.</p>
+      </div>
+      <div class="map-wrap reveal">
+        <svg class="usa-map" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
+          <path class="usa-land" d="M45,53 L52,192 L55,227 L77,282 L105,353 L139,366 L158,396 L249,422 L291,411 L316,411 L420,525 L451,538 L490,465 L569,471 L629,445 L666,456 L708,553 L690,443 L699,404 L775,338 L771,293 L799,246 L823,218 L861,199 L905,132 L893,78 L651,106 L488,40 L265,40 L74,40 Z"/>
+
+          <!-- Indianapolis, IN — Sterile Manufacturing -->
+          <g class="map-dot" transform="translate(619,240)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="10" y="4">INDIANAPOLIS, IN</text>
+          </g>
+
+          <!-- Research Triangle Park, NC — R&D / QC Labs -->
+          <g class="map-dot" transform="translate(727,322)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="10" y="4">RESEARCH TRIANGLE, NC</text>
+          </g>
+
+          <!-- San Diego, CA — Biologics Innovation Hub -->
+          <g class="map-dot" transform="translate(157,393)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="-10" y="4" text-anchor="end">SAN DIEGO, CA</text>
+          </g>
+
+          <!-- New Jersey — East Coast Distribution -->
+          <g class="map-dot" transform="translate(794,226)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="10" y="-8">NEW JERSEY</text>
+          </g>
+
+          <!-- Houston, TX — South-Central Distribution -->
+          <g class="map-dot" transform="translate(482,457)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="10" y="4">HOUSTON, TX</text>
+          </g>
+
+          <!-- Chicago, IL — Midwest Distribution -->
+          <g class="map-dot" transform="translate(597,194)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="10" y="-8">CHICAGO, IL</text>
+          </g>
+
+          <!-- Silver Spring, MD — USFDA Regulatory Engagement -->
+          <g class="map-dot fda" transform="translate(755,257)">
+            <circle class="pulse" r="6"/>
+            <circle class="core" r="5"/>
+            <text class="map-label" x="10" y="16">FDA HQ — SILVER SPRING, MD</text>
+          </g>
+        </svg>
+
+        <div class="map-legend">
+          <div class="legend-item">
+            <span class="legend-dot mfg"></span>
+            <div>
+              <h5 data-i18n="legend1.h5">Manufacturing, R&amp;D &amp; Distribution Sites</h5>
+              <p data-i18n="legend1.p">Indianapolis (sterile fill-finish), Research Triangle Park (analytical &amp; QC labs), San Diego (biologics R&amp;D), plus distribution hubs in New Jersey, Houston, and Chicago.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot fda"></span>
+            <div>
+              <h5 data-i18n="legend2.h5">USFDA Regulatory Engagement</h5>
+              <p data-i18n="legend2.p">Direct proximity to FDA headquarters in Silver Spring, MD supports inspection readiness and ongoing regulatory dialogue.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT -->
+  <section id="investment">
+    <div class="wrap">
+
+      <!-- Executive Investment Snapshot -->
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i18n="invest.eyebrow">Investment Opportunity</span>
+        <h2 data-i18n="invest.h2">Executive Investment Snapshot</h2>
+        <p data-i18n="invest.p">A ground-up USFDA-compliant sterile injectable platform, built for structural demand growth and a compounding return profile.</p>
+      </div>
+
+      <div class="invest-grid reveal">
+        <div>
+          <h3 class="invest-subhead" data-i18n="invest.platform.h3">The Platform</h3>
+          <div class="fact-list">
+            <div class="fact-item">
+              <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+              <span data-i18n="invest.fact1">60,000 sq. ft. plant aligned to USFDA compliance</span>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M9.5 10.5 6.3 7.3M14.5 10.5l3.2-3.2M9.5 13.5 6.3 16.7M14.5 13.5l3.2 3.2"/></svg></div>
+              <span data-i18n="invest.fact2">ISO 5 / 6 / 7 / 8 cleanrooms</span>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18M5 21V9l4-3v3l4-3v3l4-3v15"/></svg></div>
+              <span data-i18n="invest.fact3">3 Core Sterile Manufacturing Platforms</span>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2v6M12 16v6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2"/></svg></div>
+              <span data-i18n="invest.fact4">~43M+ annual unit capacity</span>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+              <span data-i18n="invest.fact5">30–36 months from project startup to commercialization</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="invest-subhead" data-i18n="invest.capacity.h3">Capacity on an 8-Hour Shift</h3>
+          <table class="invest-capacity-table">
+            <tr><th data-i18n="invest.th.format">Format</th><th data-i18n="invest.th.output">Output (Mn Units)</th></tr>
+            <tr><td data-i18n="invest.row1">Liquid Injectables Vials</td><td>6.99</td></tr>
+            <tr><td data-i18n="invest.row2">Lyophilized Vials</td><td>1.62</td></tr>
+            <tr><td data-i18n="invest.row3">Prefilled Syringes / Cartridge</td><td>5.43</td></tr>
+            <tr><td data-i18n="invest.row4">Ophthalmic / Nasal Sterile Solutions</td><td>5.43</td></tr>
+            <tr class="total-row"><td data-i18n="invest.total">Total</td><td>19.48</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="installed-band reveal" data-i18n="invest.equity.band">Attractive Equity Return Profile</div>
+
+      <div class="equity-cards reveal">
+        <div class="equity-card">
+          <h5 data-i18n="eq1.h">Hybrid model</h5>
+          <p data-i18n="eq1.v">CDMO + ANDA + 505(b)(2)</p>
+        </div>
+        <div class="equity-card">
+          <h5 data-i18n="eq2.h">Targeted Gross Margins</h5>
+          <p class="blank-target" data-i18n="eq.blank">Add target %</p>
+        </div>
+        <div class="equity-card">
+          <h5 data-i18n="eq3.h">Target EBITDA Margin</h5>
+          <p class="blank-target" data-i18n="eq.blank">Add target %</p>
+        </div>
+        <div class="equity-card">
+          <h5 data-i18n="eq4.h">Targeted Equity IRR</h5>
+          <p class="blank-target" data-i18n="eq.blank">Add target %</p>
+        </div>
+        <div class="equity-card">
+          <h5 data-i18n="eq5.h">Payback Period</h5>
+          <p class="blank-target" data-i18n="eq.blank2">Add timeframe</p>
+        </div>
+      </div>
+
+      <!-- Market Structural Imbalance -->
+      <div class="sec-head reveal" style="margin-top:70px;">
+        <span class="eyebrow" data-i18n="market.eyebrow">Market Opportunity</span>
+        <h2 data-i18n="market.h2">US Sterile Injectable Market: Structural Imbalance</h2>
+      </div>
+
+      <div class="imbalance-grid reveal">
+        <div>
+          <div class="imbalance-header demand" data-i18n="market.demand.h">Demand Drivers</div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.d1">Biologics, GLP-1 &amp; specialty injectables growth</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.d2">Rising oncology &amp; hospital-use injectables</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.d3">Aging population driving chronic &amp; ophthalmic demand</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.d4">Shift from oral → injectable delivery</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.d5">High-complexity molecules requiring sterile fill-finish</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.d6">Persistent FDA-reported drug shortages</span></div>
+        </div>
+        <div class="imbalance-scale">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 21h12"/><path d="M4 7h6M14 7h6"/><path d="M4 7l-2 5a3 3 0 0 0 6 0z"/><path d="M20 7l-2 5a3 3 0 0 0 6 0z"/></svg>
+        </div>
+        <div>
+          <div class="imbalance-header supply" data-i18n="market.supply.h">Supply Constraints</div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.s1">Limited FDA-compliant US sterile facilities</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.s2">Lengthy regulatory approval &amp; inspection cycles</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.s3">Reliance on overseas suppliers</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.s4">Regulatory shutdowns disrupting supply</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.s5">Long CDMO booking cycles</span></div>
+          <div class="imbalance-item"><span class="idot"></span><span data-i18n="market.s6">High capital &amp; compliance entry barriers</span></div>
+        </div>
+      </div>
+
+      <div class="installed-band reveal" data-i18n="market.conclusion">Structural demand growth + constrained compliant capacity = Sustainable pricing power</div>
+
+      <!-- 4 Strategic Pillars -->
+      <div class="sec-head reveal" style="margin-top:70px;">
+        <span class="eyebrow" data-i18n="pillars4.eyebrow">Investment Thesis</span>
+        <h2 data-i18n="pillars4.h2">Why US-Based Manufacturing Wins — 4 Strategic Pillars</h2>
+      </div>
+
+      <div class="strategic-grid reveal">
+        <div class="strategic-card">
+          <div class="strategic-head tone-a" data-i18n="sp1.h">Regulatory Advantage</div>
+          <ul class="check-list">
+            <li data-i18n="sp1.li1">Built fully within US FDA jurisdiction</li>
+            <li data-i18n="sp1.li2">Lower inspection volatility vs offshore</li>
+            <li data-i18n="sp1.li3">Compliance-by-design (no retrofits)</li>
+            <li data-i18n="sp1.li4">Faster ANDA commercialization post qualification</li>
+            <li data-i18n="sp1.li5">Reduced long-term regulatory risk</li>
+          </ul>
+        </div>
+        <div class="strategic-card">
+          <div class="strategic-head tone-b" data-i18n="sp2.h">Strategic &amp; Commercial Advantage</div>
+          <ul class="check-list">
+            <li data-i18n="sp2.li1">Strong demand for US domestic sterile capacity</li>
+            <li data-i18n="sp2.li2">Global pharma preference for onshore compliant partners</li>
+            <li data-i18n="sp2.li3">Higher pricing resilience in US sterile market</li>
+            <li data-i18n="sp2.li4">Constrained capacity supports margin stability</li>
+            <li data-i18n="sp2.li5">Multi-client CDMO-ready infrastructure</li>
+          </ul>
+        </div>
+        <div class="strategic-card">
+          <div class="strategic-head tone-b" data-i18n="sp3.h">Valuation &amp; Exit Advantage</div>
+          <ul class="check-list">
+            <li data-i18n="sp3.li1">Multiple monetization paths: CDMO, ANDAs, 505(b)(2)</li>
+            <li data-i18n="sp3.li2">Staged value inflection (facility → FDA → revenue → EBITDA)</li>
+            <li data-i18n="sp3.li3">Premium valuation multiples for US sterile assets</li>
+            <li data-i18n="sp3.li4">Easier M&amp;A, JV &amp; partnerships in the US</li>
+          </ul>
+        </div>
+        <div class="strategic-card">
+          <div class="strategic-head tone-a" data-i18n="sp4.h">Promoter Strength &amp; Execution</div>
+          <ul class="check-list">
+            <li data-i18n="sp4.li1">Deep institutional experience (MNCs &amp; advisory)</li>
+            <li data-i18n="sp4.li2">Proven senior leadership &amp; financial structuring</li>
+            <li data-i18n="sp4.li3">2+ years of disciplined pre-project planning</li>
+            <li data-i18n="sp4.li4">Established US presence (financial &amp; technical)</li>
+            <li data-i18n="sp4.li5">Capex-efficient execution via global sourcing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="installed-band reveal" data-i18n="pillars4.conclusion">Regulatory Moat + Structural Demand + Staged Value Inflection + Institutional Promoter Depth = Compounding Enterprise Value</div>
+
+    </div>
+  </section>
+
+  <!-- NEWS ROOM -->
+  <section id="news" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i18n="news.eyebrow">Newsroom</span>
+        <h2 data-i18n="news.h2">Press releases &amp; notices</h2>
+      </div>
+      <div class="news-grid reveal">
+        <div class="news-col">
+          <h3 data-i18n="news.col1">Press Releases</h3>
+          <div class="news-item">
+            <span class="date">Jul 02, 2026</span>
+            <div><a href="#" data-i18n="news1.title">Vithal Life Science begins qualification runs on its USFDA-aligned sterile injectable line</a><span class="cat" data-i18n="news1.cat">Facility</span></div>
+          </div>
+          <div class="news-item">
+            <span class="date">Jun 18, 2026</span>
+            <div><a href="#" data-i18n="news2.title">Isolator-based aseptic filling line completes IQ/OQ/PQ validation</a><span class="cat" data-i18n="news2.cat">Validation</span></div>
+          </div>
+          <div class="news-item">
+            <span class="date">May 27, 2026</span>
+            <div><a href="#" data-i18n="news3.title">Vithal Life Science engages third-party GMP auditor ahead of USFDA pre-approval inspection</a><span class="cat" data-i18n="news3.cat">Compliance</span></div>
+          </div>
+          <div class="news-item">
+            <span class="date">Apr 30, 2026</span>
+            <div><a href="#" data-i18n="news4.title">Lyophilization suite commissioned for sterile injectable platform</a><span class="cat" data-i18n="news4.cat">Facility</span></div>
+          </div>
+        </div>
+        <div class="news-col">
+          <h3 data-i18n="news.col2">Notices</h3>
+          <div class="news-item">
+            <span class="date">Jun 30, 2026</span>
+            <div><a href="#" data-i18n="news5.title">Notice of Annual Shareholders' Meeting</a><span class="cat" data-i18n="news5.cat">Corporate</span></div>
+          </div>
+          <div class="news-item">
+            <span class="date">Jun 05, 2026</span>
+            <div><a href="#" data-i18n="news6.title">Scheduled environmental monitoring shutdown — sterile core, Jul 10–12</a><span class="cat" data-i18n="news6.cat">Operations</span></div>
+          </div>
+          <div class="news-item">
+            <span class="date">Mar 14, 2026</span>
+            <div><a href="#" data-i18n="news7.title">Caution regarding suspicious emails impersonating the company</a><span class="cat" data-i18n="news7.cat">Security</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div>
+          <h3 style="font-family:var(--mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--primary); margin-bottom:20px;" data-i18n="pickup.h3">Pick Up</h3>
+          <div class="pickup-list">
+            <a href="#spotlight" class="pickup-card" data-i18n="pickup.item1">SynVaultLine™ Platform Overview</a>
+            <a href="#" class="pickup-card" data-i18n="pickup.item2">Sustainability Report 2025</a>
+            <a href="#footprint" class="pickup-card" data-i18n="pickup.item3">National Manufacturing Footprint</a>
+            <a href="#" class="pickup-card" data-i18n="pickup.item4">Our DX &amp; Digital Quality Systems</a>
+          </div>
+        </div>
+        <div class="press-box">
+          <h5 data-i18n="press.eyebrow">For the Press</h5>
+          <p data-i18n="press.p">Our latest press releases and information for members of the press, including fact sheets and usage guidelines.</p>
+          <div class="press-links">
+            <a href="#" data-i18n="press.kit">Press Kit</a>
+            <a href="#contact" data-i18n="press.inquiry">Inquiry Form</a>
+          </div>
+          <div class="share-row">
+            <span data-i18n="press.share">Share</span>
+            <a class="share-icon" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M9 13h5"/><circle cx="12" cy="12" r="9"/></svg></a>
+            <a class="share-icon" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v4"/></svg></a>
+            <a class="share-icon" href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSTAINABILITY / ABOUT / IR -->
+  <section style="background:var(--paper-dim); padding-top:64px; padding-bottom:64px;">
+    <div class="wrap">
+      <div class="info-row reveal">
+        <div class="info-card">
+          <h4 data-i18n="info1.h4">Sustainability</h4>
+          <p data-i18n="info1.p">Sustainability management through innovative products, responsible manufacturing, and contribution to science.</p>
+          <a href="#" class="link-arrow"><span data-i18n="info1.link">Learn more</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="info-card">
+          <h4 data-i18n="info2.h4">About Us</h4>
+          <p data-i18n="info2.p">Our mission, leadership, business activities, and mid-term plan for building a USFDA-ready sterile injectable platform.</p>
+          <a href="#" class="link-arrow"><span data-i18n="info2.link">Learn more</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="info-card">
+          <h4 data-i18n="info3.h4">Investor Relations</h4>
+          <p data-i18n="info3.p">Information for shareholders and investors, including management policies, IR materials, and financial results.</p>
+          <a href="#" class="link-arrow"><span data-i18n="info3.link">Learn more</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2 data-i18n="cta.h2">Partner with Vithal Life Science for your next USFDA-compliant sterile injectable program.</h2>
+        <a href="#contact" class="cta-btn" data-i18n="cta.btn">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap" style="max-width:640px;">
+      <div class="sec-head reveal" style="margin-bottom:32px;">
+        <span class="eyebrow" data-i18n="contact.eyebrow">Contact</span>
+        <h2 data-i18n="contact.h2">Tell us about your sterile injectable program</h2>
+        <p data-i18n="contact.p">Whether you need aseptic fill-finish capacity, lyophilization, or support preparing for a USFDA inspection, our team will respond within two business days.</p>
+      </div>
+      <form class="reveal" onsubmit="event.preventDefault(); this.querySelector('.form-status').textContent=translations['contact.thanks'][currentLang];" style="display:grid; gap:16px;">
+        <input required placeholder="Full name" data-i18n-ph="contact.name" style="padding:14px 16px; border:1px solid var(--line); border-radius:4px; font-family:var(--body); font-size:15px; background:var(--card-bg); color:var(--ink);">
+        <input required type="email" placeholder="Work email" data-i18n-ph="contact.email" style="padding:14px 16px; border:1px solid var(--line); border-radius:4px; font-family:var(--body); font-size:15px; background:var(--card-bg); color:var(--ink);">
+        <textarea required placeholder="What are you looking to build?" data-i18n-ph="contact.message" rows="4" style="padding:14px 16px; border:1px solid var(--line); border-radius:4px; font-family:var(--body); font-size:15px; background:var(--card-bg); color:var(--ink); resize:vertical;"></textarea>
+        <button type="submit" class="cta-btn" data-i18n="contact.submit" style="justify-self:start;">Send message</button>
+        <span class="form-status" style="font-size:14px; color:var(--primary-deep);"></span>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">VITHAL LIFE SCIENCE</div>
+        <p class="footer-brand-desc" data-i18n="footer.desc">Building a USFDA-compliant sterile injectable platform — aseptic fill-finish, lyophilization, and inspection-ready quality systems under one roof.</p>
+      </div>
+      <div>
+        <h5 data-i18n="footer.platform">Platform</h5>
+        <ul>
+          <li><a href="#solutions" data-i18n="prod1.h4">Liquid Vials &amp; Lyophilized Vials</a></li>
+          <li><a href="#solutions" data-i18n="prod2.h4">Prefilled Syringes</a></li>
+          <li><a href="#solutions" data-i18n="prod3.h4">Cartridges &amp; Pen Systems</a></li>
+          <li><a href="#solutions" data-i18n="prod4.h4">Ophthalmic &amp; Nasal/Ear Drops</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.company">Company</h5>
+        <ul>
+          <li><a href="#pillars" data-i18n="nav.strengths">Strengths</a></li>
+          <li><a href="#investment" data-i18n="nav.investment">Investment</a></li>
+          <li><a href="#spotlight" data-i18n="nav.innovation">Innovation</a></li>
+          <li><a href="#" data-i18n="footer.sustainability">Sustainability</a></li>
+          <li><a href="#" data-i18n="footer.careers">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.resources">Resources</h5>
+        <ul>
+          <li><a href="#news" data-i18n="nav.news">Newsroom</a></li>
+          <li><a href="#" data-i18n="footer.investor">Investor Relations</a></li>
+          <li><a href="#" data-i18n="footer.quality">Quality &amp; Compliance</a></li>
+          <li><a href="#" data-i18n="footer.presskit">Press Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.contact">Contact</h5>
+        <ul>
+          <li><a href="#contact" data-i18n="footer.getintouch">Get in touch</a></li>
+          <li><a href="mailto:hello@vithallifescience.com">hello@vithallifescience.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="footer.copyright">© 2026 Vithal Life Science. All rights reserved.</span>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v4"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M9 13h5"/><circle cx="12" cy="12" r="9"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  /* ---------- BILINGUAL (EN / HI) ---------- */
+  const translations = {
+    'nav.solutions': {en:'Solutions', hi:'समाधान'},
+    'nav.strengths': {en:'Strengths', hi:'विशेषताएं'},
+    'nav.innovation': {en:'Innovation', hi:'नवाचार'},
+    'nav.footprint': {en:'Footprint', hi:'उपस्थिति'},
+    'nav.news': {en:'News', hi:'समाचार'},
+    'nav.contact': {en:'Contact', hi:'संपर्क करें'},
+    'nav.talktous': {en:'Talk to us', hi:'हमसे बात करें'},
+
+    'hero.eyebrow': {en:'USFDA-Compliant Sterile Injectable Platform', hi:'USFDA-अनुरूप स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म'},
+    'hero.h1': {en:'Aseptic manufacturing, built to <em>USFDA</em> standards from day one.', hi:'पहले दिन से <em>USFDA</em> मानकों के अनुरूप एसेप्टिक विनिर्माण।'},
+    'hero.lead': {en:'Vithal Life Science is building a dedicated sterile injectable platform — isolator-based aseptic filling, lyophilization, and fully validated fill-finish lines engineered to meet USFDA 21 CFR 211 and EU Annex 1 requirements across every batch.', hi:'Vithal Life Science एक समर्पित स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म का निर्माण कर रहा है — आइसोलेटर-आधारित एसेप्टिक फिलिंग, लायोफिलाइज़ेशन, और पूर्ण रूप से मान्यता प्राप्त फिल-फिनिश लाइनें, जो हर बैच में USFDA 21 CFR 211 और EU एनेक्स 1 आवश्यकताओं को पूरा करने के लिए डिज़ाइन की गई हैं।'},
+    'hero.cta1': {en:'Explore the injectable platform', hi:'इंजेक्टेबल प्लेटफ़ॉर्म देखें'},
+    'hero.cta2': {en:'See our compliance approach', hi:'हमारा अनुपालन दृष्टिकोण देखें'},
+
+    'stats.1': {en:'Grade A aseptic core, isolator-contained filling', hi:'ग्रेड A एसेप्टिक कोर, आइसोलेटर-नियंत्रित फिलिंग'},
+    'stats.2': {en:'Dedicated sterile fill-finish lines in build-out', hi:'निर्माणाधीन समर्पित स्टेराइल फिल-फिनिश लाइनें'},
+    'stats.3': {en:'Facility designed to Part 210/211 &amp; Annex 1', hi:'पार्ट 210/211 और एनेक्स 1 के अनुरूप डिज़ाइन की गई सुविधा'},
+    'stats.4': {en:'Batches under full electronic traceability', hi:'पूर्ण इलेक्ट्रॉनिक ट्रेसेबिलिटी के अंतर्गत बैच'},
+
+    'pillars.eyebrow': {en:'What sets our platform apart', hi:'हमारे प्लेटफ़ॉर्म को क्या अलग बनाता है'},
+    'pillars.h2': {en:'Three pillars of a USFDA-ready sterile line', hi:'USFDA-तैयार स्टेराइल लाइन के तीन स्तंभ'},
+    'pillars.p': {en:'Every design decision in our injectable platform — from cleanroom layout to data integrity — is made against USFDA expectations, not retrofitted to meet them later.', hi:'हमारे इंजेक्टेबल प्लेटफ़ॉर्म में हर डिज़ाइन निर्णय — क्लीनरूम लेआउट से लेकर डेटा इंटीग्रिटी तक — USFDA अपेक्षाओं को ध्यान में रखकर लिया गया है, बाद में उन्हें पूरा करने के लिए नहीं जोड़ा गया।'},
+    'pillar1.h3': {en:'Aseptic Process Design', hi:'एसेप्टिक प्रोसेस डिज़ाइन'},
+    'pillar1.p': {en:'Isolator and RABS-based filling, closed-system transfers, and media-fill qualified operators — built to minimize human intervention in the Grade A zone.', hi:'आइसोलेटर और RABS-आधारित फिलिंग, क्लोज़्ड-सिस्टम ट्रांसफर, और मीडिया-फिल क्वालिफाइड ऑपरेटर — ग्रेड A ज़ोन में मानवीय हस्तक्षेप को न्यूनतम करने के लिए बनाए गए।'},
+    'pillar2.h3': {en:'USFDA-Aligned Facility &amp; QMS', hi:'USFDA-संरेखित सुविधा और QMS'},
+    'pillar2.p': {en:'Facility, utilities, and quality systems designed to 21 CFR Parts 210/211 and Annex 1, with data integrity and CAPA processes built for FDA pre-approval inspection.', hi:'सुविधा, उपयोगिताएं, और गुणवत्ता प्रणालियां 21 CFR भाग 210/211 और एनेक्स 1 के अनुरूप डिज़ाइन की गई हैं, जिसमें FDA प्री-अप्रूवल इंस्पेक्शन के लिए डेटा इंटीग्रिटी और CAPA प्रक्रियाएं शामिल हैं।'},
+    'pillar3.h3': {en:'Validated, Scalable Fill-Finish', hi:'मान्यता प्राप्त, स्केलेबल फिल-फिनिश'},
+    'pillar3.p': {en:'Fully validated filling, lyophilization, and inspection lines that scale from clinical batches to commercial volumes without re-qualification surprises.', hi:'पूर्ण रूप से मान्यता प्राप्त फिलिंग, लायोफिलाइज़ेशन, और इंस्पेक्शन लाइनें जो क्लिनिकल बैचों से लेकर वाणिज्यिक मात्रा तक बिना पुनः-क्वालिफिकेशन की समस्याओं के स्केल होती हैं।'},
+
+    'solutions.eyebrow': {en:'Platform capabilities', hi:'प्लेटफ़ॉर्म क्षमताएं'},
+    'solutions.p': {en:'One aseptic core, multiple validated formats — sized to fit clinical, launch, and commercial-scale sterile injectable programs.', hi:'एक एसेप्टिक कोर, कई मान्यता प्राप्त फॉर्मेट — क्लिनिकल, लॉन्च, और वाणिज्यिक-स्तर के स्टेराइल इंजेक्टेबल कार्यक्रमों के लिए उपयुक्त।'},
+
+    'sol1.h4': {en:'Sterile Vials', hi:'स्टेराइल वायल्स'},
+    'sol1.p': {en:'Liquid and lyophilized fill for vials from 2 mL to 100 mL, with automated stoppering and crimping.', hi:'2 mL से 100 mL तक की वायल्स के लिए लिक्विड और लायोफिलाइज़्ड फिल, स्वचालित स्टॉपरिंग और क्रिम्पिंग के साथ।'},
+    'sol1.tag': {en:'Liquid &amp; lyo', hi:'लिक्विड और लायो'},
+    'sol2.h4': {en:'Pre-Filled Syringes', hi:'प्री-फिल्ड सिरिंज'},
+    'sol2.p': {en:'Nested syringe filling with camera-based fill-volume and defect inspection at line speed.', hi:'लाइन स्पीड पर कैमरा-आधारित फिल-वॉल्यूम और डिफेक्ट इंस्पेक्शन के साथ नेस्टेड सिरिंज फिलिंग।'},
+    'sol2.tag': {en:'Nested &amp; bulk format', hi:'नेस्टेड और बल्क फॉर्मेट'},
+    'sol3.h4': {en:'Cartridges &amp; Pen Systems', hi:'कार्ट्रिज और पेन सिस्टम'},
+    'sol3.p': {en:'High-precision cartridge filling for auto-injector and pen-delivery biologic products.', hi:'ऑटो-इंजेक्टर और पेन-डिलीवरी बायोलॉजिक उत्पादों के लिए उच्च-सटीकता कार्ट्रिज फिलिंग।'},
+    'sol3.tag': {en:'Device-ready fill', hi:'डिवाइस-रेडी फिल'},
+    'sol4.h4': {en:'Lyophilized Biologics', hi:'लायोफिलाइज़्ड बायोलॉजिक्स'},
+    'sol4.p': {en:'Cycle-development-backed freeze-drying for biologics and vaccines requiring extended stability.', hi:'विस्तारित स्थिरता की आवश्यकता वाले बायोलॉजिक्स और वैक्सीन के लिए साइकल-डेवलपमेंट-समर्थित फ्रीज़-ड्राईंग।'},
+    'sol4.tag': {en:'Freeze-dry validated', hi:'फ्रीज़-ड्राई मान्यता प्राप्त'},
+    'sol5.h4': {en:'Ophthalmic &amp; Small-Volume Parenterals', hi:'नेत्र संबंधी एवं लघु-आयतन पैरेंटरल'},
+    'sol5.p': {en:'Terminally sterilized and aseptically filled small-volume products, including ophthalmic injectables.', hi:'टर्मिनली स्टरलाइज़्ड और एसेप्टिकली फिल्ड लघु-आयतन उत्पाद, जिसमें नेत्र संबंधी इंजेक्टेबल शामिल हैं।'},
+    'sol5.tag': {en:'SVP &amp; ophthalmic', hi:'SVP और नेत्र संबंधी'},
+    'sol6.h4': {en:'Biologics &amp; mAbs', hi:'बायोलॉजिक्स और mAbs'},
+    'sol6.p': {en:'Low-bioburden handling and cold-chain-ready fill-finish for monoclonal antibodies and proteins.', hi:'मोनोक्लोनल एंटीबॉडी और प्रोटीन के लिए कम-बायोबर्डन हैंडलिंग और कोल्ड-चेन-रेडी फिल-फिनिश।'},
+    'sol6.tag': {en:'Cold-chain ready', hi:'कोल्ड-चेन रेडी'},
+
+    'spotlight.eyebrow': {en:'Compliance-by-design', hi:'अनुपालन-दर-डिज़ाइन'},
+    'spotlight.h2': {en:'Built for FDA inspection readiness, not just production output', hi:'केवल उत्पादन आउटपुट के लिए नहीं, बल्कि FDA इंस्पेक्शन तैयारी के लिए निर्मित'},
+    'spotlight.tag': {en:'SynVaultLine™ — Sterile Platform', hi:'SynVaultLine™ — स्टेराइल प्लेटफ़ॉर्म'},
+    'spotlight.h3': {en:'One aseptic core, engineered against 21 CFR 211 and Annex 1 from the ground up', hi:'एक एसेप्टिक कोर, शुरुआत से ही 21 CFR 211 और एनेक्स 1 के अनुरूप इंजीनियर किया गया'},
+    'spotlight.p': {en:'SynVaultLine integrates isolator-based aseptic filling, automated visual inspection, and serialization into a single continuous run. Environmental monitoring, media fills, and batch records are built for USFDA pre-approval inspection from the outset — not layered on after commissioning — with full electronic traceability from raw material to shipping case.', hi:'SynVaultLine आइसोलेटर-आधारित एसेप्टिक फिलिंग, स्वचालित विज़ुअल इंस्पेक्शन, और सीरियलाइज़ेशन को एक निरंतर रन में एकीकृत करता है। पर्यावरण निगरानी, मीडिया फिल, और बैच रिकॉर्ड शुरू से ही USFDA प्री-अप्रूवल इंस्पेक्शन के लिए बनाए गए हैं — कमीशनिंग के बाद नहीं जोड़े गए — कच्चे माल से लेकर शिपिंग केस तक पूर्ण इलेक्ट्रॉनिक ट्रेसेबिलिटी के साथ।'},
+    'spotlight.link': {en:'Request a compliance &amp; facility briefing', hi:'अनुपालन और सुविधा ब्रीफिंग का अनुरोध करें'},
+
+    'map.eyebrow': {en:'National footprint', hi:'राष्ट्रीय उपस्थिति'},
+    'map.h2': {en:'A manufacturing &amp; distribution network built around USFDA alignment', hi:'USFDA संरेखण के इर्द-गिर्द बना एक विनिर्माण और वितरण नेटवर्क'},
+    'map.p': {en:'Our sterile injectable platform is positioned across key U.S. pharma hubs — close to the analytical, regulatory, and logistics infrastructure that keeps a USFDA-regulated supply chain moving.', hi:'हमारा स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म प्रमुख अमेरिकी फार्मा हब्स में स्थित है — एनालिटिकल, नियामक, और लॉजिस्टिक्स इंफ्रास्ट्रक्चर के करीब जो USFDA-विनियमित आपूर्ति श्रृंखला को गतिशील रखता है।'},
+    'legend1.h5': {en:'Manufacturing, R&amp;D &amp; Distribution Sites', hi:'विनिर्माण, R&amp;D और वितरण साइट्स'},
+    'legend1.p': {en:'Indianapolis (sterile fill-finish), Research Triangle Park (analytical &amp; QC labs), San Diego (biologics R&amp;D), plus distribution hubs in New Jersey, Houston, and Chicago.', hi:'इंडियानापोलिस (स्टेराइल फिल-फिनिश), रिसर्च ट्राएंगल पार्क (एनालिटिकल और QC लैब), सैन डिएगो (बायोलॉजिक्स R&amp;D), साथ ही न्यू जर्सी, ह्यूस्टन, और शिकागो में वितरण हब।'},
+    'legend2.h5': {en:'USFDA Regulatory Engagement', hi:'USFDA नियामक सहभागिता'},
+    'legend2.p': {en:'Direct proximity to FDA headquarters in Silver Spring, MD supports inspection readiness and ongoing regulatory dialogue.', hi:'सिल्वर स्प्रिंग, MD में FDA मुख्यालय से निकटता इंस्पेक्शन तैयारी और निरंतर नियामक संवाद का समर्थन करती है।'},
+
+    'news.eyebrow': {en:'Newsroom', hi:'न्यूज़रूम'},
+    'news.h2': {en:'Press releases &amp; notices', hi:'प्रेस विज्ञप्तियां और सूचनाएं'},
+    'news.col1': {en:'Press Releases', hi:'प्रेस विज्ञप्तियां'},
+    'news.col2': {en:'Notices', hi:'सूचनाएं'},
+    'news1.title': {en:'Vithal Life Science begins qualification runs on its USFDA-aligned sterile injectable line', hi:'Vithal Life Science ने अपनी USFDA-संरेखित स्टेराइल इंजेक्टेबल लाइन पर क्वालिफिकेशन रन शुरू किए'},
+    'news1.cat': {en:'Facility', hi:'सुविधा'},
+    'news2.title': {en:'Isolator-based aseptic filling line completes IQ/OQ/PQ validation', hi:'आइसोलेटर-आधारित एसेप्टिक फिलिंग लाइन ने IQ/OQ/PQ वैलिडेशन पूरा किया'},
+    'news2.cat': {en:'Validation', hi:'वैलिडेशन'},
+    'news3.title': {en:'Vithal Life Science engages third-party GMP auditor ahead of USFDA pre-approval inspection', hi:'Vithal Life Science ने USFDA प्री-अप्रूवल इंस्पेक्शन से पहले थर्ड-पार्टी GMP ऑडिटर नियुक्त किया'},
+    'news3.cat': {en:'Compliance', hi:'अनुपालन'},
+    'news4.title': {en:'Lyophilization suite commissioned for sterile injectable platform', hi:'स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म के लिए लायोफिलाइज़ेशन सुइट कमीशन किया गया'},
+    'news4.cat': {en:'Facility', hi:'सुविधा'},
+    "news5.title": {en:"Notice of Annual Shareholders' Meeting", hi:'वार्षिक शेयरधारक बैठक की सूचना'},
+    'news5.cat': {en:'Corporate', hi:'कॉर्पोरेट'},
+    'news6.title': {en:'Scheduled environmental monitoring shutdown — sterile core, Jul 10–12', hi:'अनुसूचित पर्यावरण निगरानी शटडाउन — स्टेराइल कोर, 10–12 जुलाई'},
+    'news6.cat': {en:'Operations', hi:'ऑपरेशंस'},
+    'news7.title': {en:'Caution regarding suspicious emails impersonating the company', hi:'कंपनी का रूप धारण करने वाले संदिग्ध ईमेल के संबंध में सावधानी'},
+    'news7.cat': {en:'Security', hi:'सुरक्षा'},
+
+    'cta.h2': {en:'Partner with Vithal Life Science for your next USFDA-compliant sterile injectable program.', hi:'अपने अगले USFDA-अनुरूप स्टेराइल इंजेक्टेबल कार्यक्रम के लिए Vithal Life Science के साथ साझेदारी करें।'},
+    'cta.btn': {en:'Get in touch', hi:'संपर्क करें'},
+
+    'contact.eyebrow': {en:'Contact', hi:'संपर्क करें'},
+    'contact.h2': {en:'Tell us about your sterile injectable program', hi:'हमें अपने स्टेराइल इंजेक्टेबल कार्यक्रम के बारे में बताएं'},
+    'contact.p': {en:'Whether you need aseptic fill-finish capacity, lyophilization, or support preparing for a USFDA inspection, our team will respond within two business days.', hi:'चाहे आपको एसेप्टिक फिल-फिनिश क्षमता चाहिए, लायोफिलाइज़ेशन, या USFDA इंस्पेक्शन की तैयारी में सहायता — हमारी टीम दो कार्यदिवसों के भीतर जवाब देगी।'},
+    'contact.name': {en:'Full name', hi:'पूरा नाम'},
+    'contact.email': {en:'Work email', hi:'कार्य ईमेल'},
+    'contact.message': {en:'What are you looking to build?', hi:'आप क्या बनाना चाहते हैं?'},
+    'contact.submit': {en:'Send message', hi:'संदेश भेजें'},
+    'contact.thanks': {en:'Thanks — we will be in touch shortly.', hi:'धन्यवाद — हम शीघ्र ही संपर्क करेंगे।'},
+
+    'footer.desc': {en:'Building a USFDA-compliant sterile injectable platform — aseptic fill-finish, lyophilization, and inspection-ready quality systems under one roof.', hi:'एक USFDA-अनुरूप स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म का निर्माण — एसेप्टिक फिल-फिनिश, लायोफिलाइज़ेशन, और इंस्पेक्शन-रेडी गुणवत्ता प्रणालियां एक ही छत के नीचे।'},
+    'footer.platform': {en:'Platform', hi:'प्लेटफ़ॉर्म'},
+    'footer.company': {en:'Company', hi:'कंपनी'},
+    'footer.resources': {en:'Resources', hi:'संसाधन'},
+    'footer.contact': {en:'Contact', hi:'संपर्क'},
+    'footer.sustainability': {en:'Sustainability', hi:'स्थिरता'},
+    'footer.careers': {en:'Careers', hi:'करियर'},
+    'footer.investor': {en:'Investor Relations', hi:'निवेशक संबंध'},
+    'footer.quality': {en:'Quality &amp; Compliance', hi:'गुणवत्ता और अनुपालन'},
+    'footer.presskit': {en:'Press Kit', hi:'प्रेस किट'},
+    'footer.getintouch': {en:'Get in touch', hi:'संपर्क करें'},
+    'footer.copyright': {en:'© 2026 Vithal Life Science. All rights reserved.', hi:'© 2026 Vithal Life Science. सर्वाधिकार सुरक्षित।'},
+
+    'showcase.eyebrow': {en:'Vithal Life Science in a nutshell', hi:'एक नज़र में Vithal Life Science'},
+    'showcase.h2': {en:'Explore our platform, our people, and our progress', hi:'हमारे प्लेटफ़ॉर्म, हमारे लोगों और हमारी प्रगति को जानें'},
+    'showcase.tag.all': {en:'#All', hi:'#सभी'},
+    'showcase.tag.platform': {en:'#Platform', hi:'#प्लेटफ़ॉर्म'},
+    'showcase.tag.compliance': {en:'#Compliance', hi:'#अनुपालन'},
+    'showcase.tag.company': {en:'#Company', hi:'#कंपनी'},
+    'showcase.item1.h4': {en:'SynVaultLine™ Platform', hi:'SynVaultLine™ प्लेटफ़ॉर्म'},
+    'showcase.item1.tag': {en:'Platform', hi:'प्लेटफ़ॉर्म'},
+    'showcase.item2.h4': {en:'Our Compliance Approach', hi:'हमारा अनुपालन दृष्टिकोण'},
+    'showcase.item2.tag': {en:'Compliance', hi:'अनुपालन'},
+    'showcase.item3.h4': {en:'Message from Leadership', hi:'नेतृत्व का संदेश'},
+    'showcase.item3.tag': {en:'Company', hi:'कंपनी'},
+    'showcase.item4.h4': {en:'Careers at Vithal', hi:'Vithal में करियर'},
+    'showcase.item4.tag': {en:'Company', hi:'कंपनी'},
+    'showcase.item5.h4': {en:'Sustainability Report', hi:'स्थिरता रिपोर्ट'},
+    'showcase.item5.tag': {en:'Company', hi:'कंपनी'},
+    'showcase.item6.h4': {en:'National Footprint', hi:'राष्ट्रीय उपस्थिति'},
+    'showcase.item6.tag': {en:'Platform', hi:'प्लेटफ़ॉर्म'},
+    'showcase.item7.h4': {en:'Newsroom', hi:'न्यूज़रूम'},
+    'showcase.item7.tag': {en:'Company', hi:'कंपनी'},
+    'showcase.item8.h4': {en:'Investor Relations', hi:'निवेशक संबंध'},
+    'showcase.item8.tag': {en:'Compliance', hi:'अनुपालन'},
+
+    'pillar1.li1': {en:'Isolator &amp; RABS-based aseptic filling', hi:'आइसोलेटर और RABS-आधारित एसेप्टिक फिलिंग'},
+    'pillar1.li2': {en:'Closed-system material and component transfer', hi:'क्लोज़्ड-सिस्टम मटीरियल और कंपोनेंट ट्रांसफर'},
+    'pillar1.li3': {en:'Media-fill qualified operators and gowning program', hi:'मीडिया-फिल क्वालिफाइड ऑपरेटर और गाउनिंग प्रोग्राम'},
+    'pillar2.li1': {en:'Facility &amp; utilities designed to 21 CFR Parts 210/211', hi:'21 CFR भाग 210/211 के अनुरूप डिज़ाइन की गई सुविधा और उपयोगिताएं'},
+    'pillar2.li2': {en:'Data integrity controls aligned to ALCOA+ principles', hi:'ALCOA+ सिद्धांतों के अनुरूप डेटा इंटीग्रिटी नियंत्रण'},
+    'pillar2.li3': {en:'CAPA and deviation management built for FDA PAI', hi:'FDA PAI के लिए बनाई गई CAPA और डेविएशन प्रबंधन प्रणाली'},
+    'pillar3.li1': {en:'IQ/OQ/PQ validated filling and lyophilization', hi:'IQ/OQ/PQ मान्यता प्राप्त फिलिंग और लायोफिलाइज़ेशन'},
+    'pillar3.li2': {en:'Automated visual inspection and serialization', hi:'स्वचालित विज़ुअल इंस्पेक्शन और सीरियलाइज़ेशन'},
+    'pillar3.li3': {en:'Scales clinical to commercial without re-validation risk', hi:'बिना पुनः-वैलिडेशन जोखिम के क्लिनिकल से वाणिज्यिक स्तर तक स्केल'},
+
+    'pickup.h3': {en:'Pick Up', hi:'चुनिंदा'},
+    'pickup.item1': {en:'SynVaultLine™ Platform Overview', hi:'SynVaultLine™ प्लेटफ़ॉर्म का अवलोकन'},
+    'pickup.item2': {en:'Sustainability Report 2025', hi:'स्थिरता रिपोर्ट 2025'},
+    'pickup.item3': {en:'National Manufacturing Footprint', hi:'राष्ट्रीय विनिर्माण उपस्थिति'},
+    'pickup.item4': {en:'Our DX &amp; Digital Quality Systems', hi:'हमारी DX और डिजिटल गुणवत्ता प्रणालियां'},
+
+    'press.eyebrow': {en:'For the Press', hi:'प्रेस के लिए'},
+    'press.p': {en:'Our latest press releases and information for members of the press, including fact sheets and usage guidelines.', hi:'प्रेस सदस्यों के लिए हमारी नवीनतम प्रेस विज्ञप्तियां और जानकारी, जिसमें फैक्ट शीट और उपयोग दिशानिर्देश शामिल हैं।'},
+    'press.kit': {en:'Press Kit', hi:'प्रेस किट'},
+    'press.inquiry': {en:'Inquiry Form', hi:'पूछताछ फ़ॉर्म'},
+    'press.share': {en:'Share', hi:'साझा करें'},
+
+    'info1.h4': {en:'Sustainability', hi:'स्थिरता'},
+    'info1.p': {en:'Sustainability management through innovative products, responsible manufacturing, and contribution to science.', hi:'नवीन उत्पादों, जिम्मेदार विनिर्माण, और विज्ञान में योगदान के माध्यम से स्थिरता प्रबंधन।'},
+    'info1.link': {en:'Learn more', hi:'और जानें'},
+    'info2.h4': {en:'About Us', hi:'हमारे बारे में'},
+    'info2.p': {en:'Our mission, leadership, business activities, and mid-term plan for building a USFDA-ready sterile injectable platform.', hi:'हमारा मिशन, नेतृत्व, व्यावसायिक गतिविधियां, और USFDA-तैयार स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म के निर्माण की मध्यम-अवधि योजना।'},
+    'info2.link': {en:'Learn more', hi:'और जानें'},
+    'info3.h4': {en:'Investor Relations', hi:'निवेशक संबंध'},
+    'info3.p': {en:'Information for shareholders and investors, including management policies, IR materials, and financial results.', hi:'शेयरधारकों और निवेशकों के लिए जानकारी, जिसमें प्रबंधन नीतियां, IR सामग्री, और वित्तीय परिणाम शामिल हैं।'},
+    'info3.link': {en:'Learn more', hi:'और जानें'},
+
+    'solutions.h2': {en:'Product and Service Portfolio', hi:'उत्पाद और सेवा पोर्टफ़ोलियो'},
+    'portfolio.band': {en:'USFDA-Compliant Multi-Line Sterile Injectables Platform — United States', hi:'USFDA-अनुरूप मल्टी-लाइन स्टेराइल इंजेक्टेबल्स प्लेटफ़ॉर्म — संयुक्त राज्य अमेरिका'},
+    'portfolio.total': {en:'Total Installed Capacity: 44 Mn Sterile Units Per Year (Single Shift)', hi:'कुल स्थापित क्षमता: 44 मिलियन स्टेराइल यूनिट प्रति वर्ष (एकल शिफ्ट)'},
+    'cap.shift': {en:'Capacity per Shift', hi:'प्रति शिफ्ट क्षमता'},
+    'cap.month': {en:'Capacity per Month', hi:'प्रति माह क्षमता'},
+    'cap.year': {en:'Capacity per Year', hi:'प्रति वर्ष क्षमता'},
+    'cap.tbd': {en:'To be confirmed', hi:'शीघ्र घोषित की जाएगी'},
+    'prod1.h4': {en:'Liquid Vials &amp; Lyophilized Vials', hi:'लिक्विड वायल्स और लायोफिलाइज़्ड वायल्स'},
+    'prod1.desc': {en:'Hospital-use, critical care injectables &amp; flexible batch sizes.', hi:'हॉस्पिटल-उपयोग, क्रिटिकल केयर इंजेक्टेबल्स और लचीले बैच आकार।'},
+    'prod2.h4': {en:'Prefilled Syringes', hi:'प्रीफ़िल्ड सिरिंज'},
+    'prod2.desc': {en:'High-precision sterile filling for specialty &amp; high-value injectables.', hi:'स्पेशलिटी और हाई-वैल्यू इंजेक्टेबल्स के लिए उच्च-सटीकता स्टेराइल फिलिंग।'},
+    'prod3.h4': {en:'Cartridges &amp; Pen Systems', hi:'कार्ट्रिज और पेन सिस्टम'},
+    'prod3.desc': {en:'Device-ready cartridge fill for auto-injector &amp; pen-delivery products.', hi:'ऑटो-इंजेक्टर और पेन-डिलीवरी उत्पादों के लिए डिवाइस-रेडी कार्ट्रिज फिल।'},
+    'prod4.h4': {en:'Ophthalmic &amp; Nasal/Ear Drops', hi:'नेत्र संबंधी और नाक/कान की बूंदें'},
+    'prod4.desc': {en:'Small-volume sterile liquid formulations.', hi:'लघु-आयतन स्टेराइल तरल फॉर्मूलेशन।'},
+    'facility.item1': {en:'60,000 Sq. Ft.<br>US-Based Facility', hi:'60,000 वर्ग फुट<br>US-आधारित सुविधा'},
+    'facility.item2': {en:'ISO 5 / ISO 6 / ISO 7 / ISO 8<br>Cleanrooms', hi:'ISO 5 / ISO 6 / ISO 7 / ISO 8<br>क्लीनरूम'},
+    'facility.item3': {en:'Automation Driven<br>Operations', hi:'स्वचालन-संचालित<br>संचालन'},
+
+    'nav.investment': {en:'Investment', hi:'निवेश'},
+    'invest.eyebrow': {en:'Investment Opportunity', hi:'निवेश अवसर'},
+    'invest.h2': {en:'Executive Investment Snapshot', hi:'कार्यकारी निवेश स्नैपशॉट'},
+    'invest.p': {en:'A ground-up USFDA-compliant sterile injectable platform, built for structural demand growth and a compounding return profile.', hi:'एक शुरुआत से बना USFDA-अनुरूप स्टेराइल इंजेक्टेबल प्लेटफ़ॉर्म, संरचनात्मक मांग वृद्धि और संचयी रिटर्न प्रोफ़ाइल के लिए डिज़ाइन किया गया।'},
+    'invest.platform.h3': {en:'The Platform', hi:'प्लेटफ़ॉर्म'},
+    'invest.fact1': {en:'60,000 sq. ft. plant aligned to USFDA compliance', hi:'60,000 वर्ग फुट का प्लांट, USFDA अनुपालन के अनुरूप'},
+    'invest.fact2': {en:'ISO 5 / 6 / 7 / 8 cleanrooms', hi:'ISO 5 / 6 / 7 / 8 क्लीनरूम'},
+    'invest.fact3': {en:'3 Core Sterile Manufacturing Platforms', hi:'3 प्रमुख स्टेराइल विनिर्माण प्लेटफ़ॉर्म'},
+    'invest.fact4': {en:'~43M+ annual unit capacity', hi:'~43M+ वार्षिक यूनिट क्षमता'},
+    'invest.fact5': {en:'30–36 months from project startup to commercialization', hi:'प्रोजेक्ट शुरुआत से व्यावसायीकरण तक 30–36 महीने'},
+    'invest.capacity.h3': {en:'Capacity on an 8-Hour Shift', hi:'8-घंटे की शिफ्ट पर क्षमता'},
+    'invest.th.format': {en:'Format', hi:'फॉर्मेट'},
+    'invest.th.output': {en:'Output (Mn Units)', hi:'आउटपुट (मिलियन यूनिट)'},
+    'invest.row1': {en:'Liquid Injectables Vials', hi:'लिक्विड इंजेक्टेबल वायल्स'},
+    'invest.row2': {en:'Lyophilized Vials', hi:'लायोफिलाइज़्ड वायल्स'},
+    'invest.row3': {en:'Prefilled Syringes / Cartridge', hi:'प्रीफ़िल्ड सिरिंज / कार्ट्रिज'},
+    'invest.row4': {en:'Ophthalmic / Nasal Sterile Solutions', hi:'नेत्र संबंधी / नाक स्टेराइल सॉल्यूशंस'},
+    'invest.total': {en:'Total', hi:'कुल'},
+    'invest.equity.band': {en:'Attractive Equity Return Profile', hi:'आकर्षक इक्विटी रिटर्न प्रोफ़ाइल'},
+
+    'eq1.h': {en:'Hybrid model', hi:'हाइब्रिड मॉडल'},
+    'eq1.v': {en:'CDMO + ANDA + 505(b)(2)', hi:'CDMO + ANDA + 505(b)(2)'},
+    'eq2.h': {en:'Targeted Gross Margins', hi:'लक्षित सकल मार्जिन'},
+    'eq3.h': {en:'Target EBITDA Margin', hi:'लक्षित EBITDA मार्जिन'},
+    'eq4.h': {en:'Targeted Equity IRR', hi:'लक्षित इक्विटी IRR'},
+    'eq5.h': {en:'Payback Period', hi:'पेबैक अवधि'},
+    'eq.blank': {en:'Add target %', hi:'लक्ष्य % जोड़ें'},
+    'eq.blank2': {en:'Add timeframe', hi:'समयसीमा जोड़ें'},
+
+    'market.eyebrow': {en:'Market Opportunity', hi:'बाज़ार अवसर'},
+    'market.h2': {en:'US Sterile Injectable Market: Structural Imbalance', hi:'US स्टेराइल इंजेक्टेबल बाज़ार: संरचनात्मक असंतुलन'},
+    'market.demand.h': {en:'Demand Drivers', hi:'मांग प्रेरक'},
+    'market.d1': {en:'Biologics, GLP-1 &amp; specialty injectables growth', hi:'बायोलॉजिक्स, GLP-1 और स्पेशलिटी इंजेक्टेबल्स की वृद्धि'},
+    'market.d2': {en:'Rising oncology &amp; hospital-use injectables', hi:'ऑन्कोलॉजी और हॉस्पिटल-उपयोग इंजेक्टेबल्स में वृद्धि'},
+    'market.d3': {en:'Aging population driving chronic &amp; ophthalmic demand', hi:'बढ़ती वृद्ध जनसंख्या के कारण क्रॉनिक और नेत्र संबंधी मांग'},
+    'market.d4': {en:'Shift from oral → injectable delivery', hi:'ओरल से इंजेक्टेबल डिलीवरी की ओर बदलाव'},
+    'market.d5': {en:'High-complexity molecules requiring sterile fill-finish', hi:'स्टेराइल फिल-फिनिश की आवश्यकता वाले उच्च-जटिलता अणु'},
+    'market.d6': {en:'Persistent FDA-reported drug shortages', hi:'FDA द्वारा रिपोर्ट की गई निरंतर दवा कमी'},
+    'market.supply.h': {en:'Supply Constraints', hi:'आपूर्ति बाधाएं'},
+    'market.s1': {en:'Limited FDA-compliant US sterile facilities', hi:'सीमित FDA-अनुरूप US स्टेराइल सुविधाएं'},
+    'market.s2': {en:'Lengthy regulatory approval &amp; inspection cycles', hi:'लंबी नियामक अनुमोदन और इंस्पेक्शन प्रक्रियाएं'},
+    'market.s3': {en:'Reliance on overseas suppliers', hi:'विदेशी आपूर्तिकर्ताओं पर निर्भरता'},
+    'market.s4': {en:'Regulatory shutdowns disrupting supply', hi:'आपूर्ति बाधित करने वाले नियामक शटडाउन'},
+    'market.s5': {en:'Long CDMO booking cycles', hi:'लंबे CDMO बुकिंग चक्र'},
+    'market.s6': {en:'High capital &amp; compliance entry barriers', hi:'उच्च पूंजी और अनुपालन प्रवेश बाधाएं'},
+    'market.conclusion': {en:'Structural demand growth + constrained compliant capacity = Sustainable pricing power', hi:'संरचनात्मक मांग वृद्धि + सीमित अनुरूप क्षमता = स्थायी मूल्य निर्धारण शक्ति'},
+
+    'pillars4.eyebrow': {en:'Investment Thesis', hi:'निवेश थीसिस'},
+    'pillars4.h2': {en:'Why US-Based Manufacturing Wins — 4 Strategic Pillars', hi:'US-आधारित विनिर्माण क्यों जीतता है — 4 रणनीतिक स्तंभ'},
+    'sp1.h': {en:'Regulatory Advantage', hi:'नियामक लाभ'},
+    'sp1.li1': {en:'Built fully within US FDA jurisdiction', hi:'पूरी तरह से US FDA अधिकार क्षेत्र के भीतर निर्मित'},
+    'sp1.li2': {en:'Lower inspection volatility vs offshore', hi:'ऑफशोर की तुलना में कम इंस्पेक्शन अस्थिरता'},
+    'sp1.li3': {en:'Compliance-by-design (no retrofits)', hi:'अनुपालन-दर-डिज़ाइन (कोई रेट्रोफिट नहीं)'},
+    'sp1.li4': {en:'Faster ANDA commercialization post qualification', hi:'क्वालिफिकेशन के बाद तेज़ ANDA व्यावसायीकरण'},
+    'sp1.li5': {en:'Reduced long-term regulatory risk', hi:'कम दीर्घकालिक नियामक जोखिम'},
+    'sp2.h': {en:'Strategic &amp; Commercial Advantage', hi:'रणनीतिक और वाणिज्यिक लाभ'},
+    'sp2.li1': {en:'Strong demand for US domestic sterile capacity', hi:'US घरेलू स्टेराइल क्षमता की मजबूत मांग'},
+    'sp2.li2': {en:'Global pharma preference for onshore compliant partners', hi:'ऑनशोर अनुरूप भागीदारों के लिए वैश्विक फार्मा प्राथमिकता'},
+    'sp2.li3': {en:'Higher pricing resilience in US sterile market', hi:'US स्टेराइल बाज़ार में उच्च मूल्य निर्धारण लचीलापन'},
+    'sp2.li4': {en:'Constrained capacity supports margin stability', hi:'सीमित क्षमता मार्जिन स्थिरता का समर्थन करती है'},
+    'sp2.li5': {en:'Multi-client CDMO-ready infrastructure', hi:'मल्टी-क्लाइंट CDMO-रेडी इंफ्रास्ट्रक्चर'},
+    'sp3.h': {en:'Valuation &amp; Exit Advantage', hi:'मूल्यांकन और एग्ज़िट लाभ'},
+    'sp3.li1': {en:'Multiple monetization paths: CDMO, ANDAs, 505(b)(2)', hi:'कई मुद्रीकरण मार्ग: CDMO, ANDAs, 505(b)(2)'},
+    'sp3.li2': {en:'Staged value inflection (facility → FDA → revenue → EBITDA)', hi:'चरणबद्ध वैल्यू इन्फ्लेक्शन (सुविधा → FDA → राजस्व → EBITDA)'},
+    'sp3.li3': {en:'Premium valuation multiples for US sterile assets', hi:'US स्टेराइल एसेट्स के लिए प्रीमियम वैल्यूएशन मल्टीपल'},
+    'sp3.li4': {en:'Easier M&amp;A, JV &amp; partnerships in the US', hi:'US में आसान M&amp;A, JV और साझेदारियां'},
+    'sp4.h': {en:'Promoter Strength &amp; Execution', hi:'प्रमोटर क्षमता और निष्पादन'},
+    'sp4.li1': {en:'Deep institutional experience (MNCs &amp; advisory)', hi:'गहरा संस्थागत अनुभव (MNCs और सलाहकार)'},
+    'sp4.li2': {en:'Proven senior leadership &amp; financial structuring', hi:'सिद्ध वरिष्ठ नेतृत्व और वित्तीय संरचना'},
+    'sp4.li3': {en:'2+ years of disciplined pre-project planning', hi:'2+ वर्षों की अनुशासित प्री-प्रोजेक्ट योजना'},
+    'sp4.li4': {en:'Established US presence (financial &amp; technical)', hi:'स्थापित US उपस्थिति (वित्तीय और तकनीकी)'},
+    'sp4.li5': {en:'Capex-efficient execution via global sourcing', hi:'वैश्विक सोर्सिंग के माध्यम से कैपेक्स-कुशल निष्पादन'},
+    'pillars4.conclusion': {en:'Regulatory Moat + Structural Demand + Staged Value Inflection + Institutional Promoter Depth = Compounding Enterprise Value', hi:'नियामक मोट + संरचनात्मक मांग + चरणबद्ध वैल्यू इन्फ्लेक्शन + संस्थागत प्रमोटर गहराई = संचयी एंटरप्राइज़ वैल्यू'}
+  };
+
+  let currentLang = 'en';
+  function applyLang(lang){
+    currentLang = lang;
+    document.documentElement.setAttribute('lang', lang === 'hi' ? 'hi' : 'en');
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[key] && translations[key][lang] != null) el.innerHTML = translations[key][lang];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const key = el.getAttribute('data-i18n-ph');
+      if (translations[key] && translations[key][lang] != null) el.setAttribute('placeholder', translations[key][lang]);
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  /* ---------- SHOWCASE TAG FILTER ---------- */
+  document.querySelectorAll('.tag-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.tag-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const tag = chip.dataset.tag;
+      document.querySelectorAll('.showcase-card').forEach(card => {
+        const tags = (card.dataset.tags || '').split(' ');
+        card.classList.toggle('hidden', tag !== 'all' && !tags.includes(tag));
+      });
+    });
+  });
+
+  /* ---------- STRENGTHS TABS ---------- */
+  document.querySelectorAll('.strength-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const n = btn.dataset.strength;
+      document.querySelectorAll('.strength-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.strength-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === n));
+    });
+  });
+</script>
+
+</body>
+</html>
